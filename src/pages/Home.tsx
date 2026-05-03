@@ -2,30 +2,36 @@ import { motion } from 'motion/react';
 import { ArrowRight, ChevronRight, Server, Globe, Cpu, MapPin, Phone, Mail } from 'lucide-react';
 import { REASONS_TO_CHOOSE } from '../constants';
 import * as Icons from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
     <div className="pt-16">
       {/* Hero Section - Matching Cover Page aesthetic */}
-      <section className="relative min-h-[85vh] flex items-center bg-white overflow-hidden pt-16 lg:pt-0">
+      <section className="relative min-h-[80vh] flex items-center bg-white overflow-hidden pt-16 lg:pt-0">
         {/* Right side background curve */}
-        <div className="absolute right-0 top-0 w-full lg:w-3/4 h-full hidden lg:block rounded-l-[200px] overflow-hidden">
+        <div className="absolute right-0 top-0 w-full lg:w-2/3 h-full hidden lg:block rounded-l-[200px] overflow-hidden">
           <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover opacity-80" alt="Office Background" />
           <div className="absolute inset-0 bg-brand-primary/20 mix-blend-multiply"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col lg:flex-row py-12 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col lg:flex-row py-8 lg:py-16">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="bg-brand-primary text-white p-12 lg:p-20 lg:rounded-r-[100px] rounded-[3rem] w-full lg:max-w-2xl shadow-2xl lg:-ml-12 border-l-8 border-brand-accent relative"
+            className="bg-brand-primary text-white p-8 sm:p-12 lg:p-16 xl:p-20 lg:rounded-r-[120px] rounded-[2.5rem] w-[100%] lg:w-[70%] shadow-2xl xl:shadow-[0_20px_60px_rgba(52,38,122,0.4)] lg:-ml-12 border-l-8 border-brand-accent relative flex flex-col justify-center min-h-[400px]"
           >
-            <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight mb-6 leading-tight text-white">
-              <span className="text-brand-accent">StratByte</span> Solutions
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-display font-bold tracking-tight mb-8 leading-tight text-white">
+              <span className="text-brand-accent">StratByte</span><br className="hidden sm:block" /> Solutions
             </h1>
+            
+            <p className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed max-w-xl pr-4">
+              We provide flexible, scalable IT and cloud solutions that adapt to your business needs, delivering comprehensive insights to help you reach your goals.
+            </p>
+
             <div className="border-l-4 border-brand-accent pl-6 mb-12">
-              <p className="text-xl md:text-2xl font-bold italic leading-relaxed text-white">
+              <p className="text-xl sm:text-2xl lg:text-3xl font-bold italic leading-relaxed text-white">
                 Trust,<br />
                 Collaboration,<br />
                 Accountability,<br />
@@ -33,10 +39,13 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <button className="bg-brand-accent text-white px-8 py-4 rounded-full text-base font-bold hover:bg-brand-accent/90 transition-all shadow-xl shadow-brand-accent/30 flex items-center justify-center">
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mt-4">
+              <Link to="/services" className="bg-brand-accent text-white px-8 py-5 sm:px-10 rounded-full text-base sm:text-lg font-bold hover:bg-brand-accent/90 hover:scale-105 transition-all shadow-xl shadow-brand-accent/30 flex items-center justify-center w-full sm:w-auto">
                 Get Started <ArrowRight size={20} className="ml-2" />
-              </button>
+              </Link>
+              <Link to="/about" className="bg-white/10 text-white border border-white/20 px-8 py-5 sm:px-10 rounded-full text-base sm:text-lg font-bold hover:bg-white/20 hover:scale-105 transition-all flex items-center justify-center w-full sm:w-auto">
+                About Us
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -121,9 +130,9 @@ export default function Home() {
             Join the elite teams building the future on StratByte's managed infrastructure.
           </p>
           <div className="flex justify-center mb-16">
-            <button className="bg-white text-brand-accent px-10 py-5 rounded-full text-lg font-bold hover:scale-105 transition-transform shadow-2xl">
+            <Link to="/contact" className="bg-white text-brand-accent px-10 py-5 rounded-full text-lg font-bold hover:scale-105 transition-transform shadow-2xl inline-block">
               Book a Consultation
-            </button>
+            </Link>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left relative z-10 border-t border-white/10 pt-16">

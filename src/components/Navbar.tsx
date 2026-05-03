@@ -48,9 +48,9 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <button className="bg-brand-primary text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-brand-primary/90 transition-all active:scale-95 shadow-lg shadow-brand-primary/20">
+            <Link to="/services" className="bg-brand-primary text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-brand-primary/90 transition-all active:scale-95 shadow-lg shadow-brand-primary/20">
               Get Started
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -83,9 +83,9 @@ export function Navbar() {
             </Link>
           ))}
           <div className="pt-4 px-3">
-             <button className="w-full bg-brand-primary text-white px-5 py-3 rounded-xl text-sm font-bold hover:bg-brand-primary/90">
+             <Link to="/services" onClick={() => setIsOpen(false)} className="w-full text-center flex items-center justify-center bg-brand-primary text-white px-5 py-3 rounded-xl text-sm font-bold hover:bg-brand-primary/90">
               Get Started
-            </button>
+            </Link>
           </div>
         </div>
       </motion.div>
