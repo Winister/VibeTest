@@ -1,4 +1,4 @@
-import { BlogPost, Service, Reason, Product } from './types';
+import { Service, Reason, Product } from './types';
 
 export const SERVICES: Service[] = [
   { id: 'app-development', title: 'App Development', icon: 'Smartphone' },
@@ -54,54 +54,4 @@ export const REASONS_TO_CHOOSE: Reason[] = [
     description: 'We recognize that one size does not fit all. That is why StratByte Cloud Solutions is modular in nature. Get only what you need and leave out what you don\'t.',
     icon: 'Lightbulb'
   }
-];
-
-export const BLOG_POSTS: BlogPost[] = [
-  {
-    id: 'future-of-multicloud',
-    title: 'The Future of Multi-Cloud Strategy',
-    excerpt: 'Why businesses are moving away from single-provider lock-in and embracing hybrid architectures.',
-    content: `
-      # The Future of Multi-Cloud Strategy
-      
-      In the rapidly evolving landscape of cloud computing, the concept of a single-cloud strategy is becoming increasingly obsolete. Businesses today are recognizing the inherent risks of vendor lock-in and the immense benefits of a multi-cloud approach.
-      
-      ## Why Multi-Cloud?
-      
-      1. **Risk Mitigation:** Distributing workloads across different providers ensures that a regional outage in one doesn't bring your entire business to a halt.
-      2. **Best-of-Breed Services:** Different cloud providers excel in different areas. AWS might be your choice for general-purpose computing, while Google Cloud leads in data analytics and AI.
-      3. **Cost Optimization:** Leveraging competitive pricing between providers can significantly reduce your monthly infrastructure spend.
-      
-      ## The Challenges
-      
-      While the benefits are clear, managing multiple clouds introduces complexity in networking, security, and governance. This is where StratByte Cloud Solutions excels.
-    `,
-    author: 'Sarah Chen',
-    date: '2024-03-15',
-    category: 'Strategy',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop',
-  },
-  {
-    id: 'serverless-efficiency',
-    title: 'Maximizing Efficiency with Serverless',
-    excerpt: 'How StratByte helped a fintech startup reduce operational costs by 40% through AWS Lambda.',
-    content: `
-      # Maximizing Efficiency with Serverless
-      
-      Serverless computing has shifted the focus from managing servers to writing code. For startups, this agility is a game-changer.
-      
-      ## Case Study: SparkFin
-      
-      SparkFin, a rising fintech player, was struggling with unpredictable traffic spikes. Their traditional EC2-based architecture was either over-provisioned (wasting money) or under-provisioned (causing latency).
-      
-      By migrating their core transaction processing to AWS Lambda and DynamoDB, we achieved:
-      - **40% Reduction** in monthly cloud bill.
-      - **Zero** manual server maintenance.
-      - **Auto-scaling** that handles millions of requests seamlessly.
-    `,
-    author: 'Michael Rossi',
-    date: '2024-03-10',
-    category: 'Case Study',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop',
-  },
 ];

@@ -12,17 +12,22 @@ export default function Services() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
-              Our Products & <span className="text-brand-accent">Solutions</span>
+            <h1 className="text-4xl md:text-5xl font-display font-medium text-brand-primary italic mb-2 tracking-tight">
+              Our Products &
             </h1>
-            <p className="text-lg md:text-xl text-black/50 max-w-2xl mx-auto leading-relaxed">
+            <h1 className="text-5xl md:text-7xl font-display font-black mb-8 tracking-tight text-brand-accent uppercase">
+             SOLUTIONS
+            </h1>
+            <div className="w-24 h-1.5 bg-brand-accent mx-auto mb-10" />
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               We offer a wide array of tools and consulting services to ensure your business is fully equipped for the digital age.
             </p>
           </motion.div>
         </div>
 
-        <div className="mb-24">
-          <h2 className="text-3xl font-bold mb-12 text-center">SOLUTIONS</h2>
+        <div className="mb-24 relative">
+          <div className="absolute right-0 top-0 w-[400px] h-[400px] bg-brand-primary/5 rounded-full blur-[100px] -z-10" />
+          <h2 className="text-4xl font-display font-black mb-12 text-brand-accent uppercase tracking-wide">SOLUTIONS</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {SERVICES.map((service, index) => {
               const IconComponent = (Icons as any)[service.icon || 'Cloud'] || Icons.Cloud;
@@ -33,20 +38,21 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="glass-card flex items-center p-6 hover:border-brand-accent transition-colors"
+                  className="glass-card flex items-center p-6 hover:border-brand-accent transition-colors bg-white/80 backdrop-blur-md"
                 >
-                  <div className="w-10 h-10 bg-brand-accent/10 text-brand-accent rounded-lg flex items-center justify-center mr-4 shrink-0">
-                    <IconComponent size={20} />
+                  <div className="w-12 h-12 bg-white ring-4 ring-[#4A72F6]/20 text-[#4A72F6] rounded-xl flex items-center justify-center mr-4 shrink-0 shadow-sm border border-[#4A72F6]/10">
+                    <IconComponent size={24} />
                   </div>
-                  <h3 className="font-bold text-sm">{service.title}</h3>
+                  <h3 className="font-bold text-base text-brand-primary">{service.title}</h3>
                 </motion.div>
               );
             })}
           </div>
         </div>
 
-        <div>
-          <h2 className="text-3xl font-bold mb-12 text-center">PRODUCTS</h2>
+        <div className="relative">
+          <div className="absolute left-0 bottom-0 w-[400px] h-[400px] bg-brand-accent/5 rounded-full blur-[100px] -z-10" />
+          <h2 className="text-4xl font-display font-black mb-12 text-brand-accent uppercase tracking-wide">PRODUCTS</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {PRODUCTS.map((product, index) => {
               const IconComponent = (Icons as any)[product.icon || 'Box'] || Icons.Box;
@@ -57,12 +63,12 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="glass-card flex items-center p-6 hover:border-brand-accent transition-colors"
+                  className="glass-card flex items-center p-6 hover:border-brand-primary transition-colors bg-white/80 backdrop-blur-md border-l-4 border-l-brand-primary"
                 >
-                  <div className="w-10 h-10 bg-black/5 text-black/60 rounded-lg flex items-center justify-center mr-4 shrink-0">
-                    <IconComponent size={20} />
+                  <div className="w-12 h-12 bg-brand-primary/10 text-brand-primary rounded-xl flex items-center justify-center mr-4 shrink-0">
+                    <IconComponent size={24} />
                   </div>
-                  <h3 className="font-bold text-sm leading-tight">{product.title}</h3>
+                  <h3 className="font-bold text-base leading-tight text-brand-primary">{product.title}</h3>
                 </motion.div>
               );
             })}

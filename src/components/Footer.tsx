@@ -3,15 +3,29 @@ import { Cloud, Github, Twitter, Linkedin, MapPin, Phone, Mail } from 'lucide-re
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-brand-primary text-white py-20 relative overflow-hidden">
+      {/* Geometric accent to mimic top right of page 2 */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent origin-bottom-left rotate-45 translate-x-32 -translate-y-32 z-0"></div>
+      <div className="absolute top-0 right-0 w-64 h-64 border-[32px] border-white/20 origin-bottom-left rotate-45 translate-x-[9rem] -translate-y-[10rem] z-0"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center space-x-2 mb-6">
-              <div className="p-1.5 bg-brand-accent rounded-lg text-white">
-                <Cloud size={24} />
+              <div className="relative flex items-center justify-center w-8 h-8 mr-1 bg-white rounded-full p-1.5 pt-2">
+                <svg viewBox="0 0 100 100" className="w-full h-full fill-brand-primary">
+                   <circle cx="50" cy="50" r="16" className="fill-brand-accent" />
+                   <circle cx="20" cy="30" r="10" />
+                   <circle cx="80" cy="30" r="10" />
+                   <circle cx="28" cy="75" r="10" />
+                   <circle cx="72" cy="75" r="10" />
+                   <circle cx="12" cy="55" r="7" className="fill-brand-accent" />
+                   <circle cx="88" cy="55" r="7" className="fill-brand-accent" />
+                   <circle cx="50" cy="20" r="8" className="fill-brand-primary" />
+                   <circle cx="50" cy="82" r="8" className="fill-brand-accent" />
+                </svg>
               </div>
-              <span className="font-display font-bold text-xl tracking-tighter">STRATBYTE</span>
+              <span className="font-display font-bold text-2xl tracking-[0.1em] text-white">STRATBYTE</span>
             </Link>
             <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-8">
               Empowering enterprises with cutting-edge cloud architectures and DevOps automation. Built for scale, designed for security.
@@ -45,9 +59,7 @@ export function Footer() {
           <div>
             <h4 className="font-display font-bold text-sm uppercase tracking-widest text-white/40 mb-6">Company</h4>
             <ul className="space-y-4">
-              <li><Link to="/blog" className="text-sm text-white/70 hover:text-brand-accent transition-colors">Blog</Link></li>
               <li><Link to="/about" className="text-sm text-white/70 hover:text-brand-accent transition-colors">About Us</Link></li>
-              <li><Link to="/careers" className="text-sm text-white/70 hover:text-brand-accent transition-colors">Careers</Link></li>
               <li><Link to="/contact" className="text-sm text-white/70 hover:text-brand-accent transition-colors">Contact</Link></li>
             </ul>
           </div>

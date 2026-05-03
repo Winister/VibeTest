@@ -6,44 +6,46 @@ import * as Icons from 'lucide-react';
 export default function Home() {
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden technical-grid py-24 lg:py-40 border-b border-black/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      {/* Hero Section - Matching Cover Page aesthetic */}
+      <section className="relative min-h-[85vh] flex items-center bg-white overflow-hidden pt-16 lg:pt-0">
+        {/* Right side background curve */}
+        <div className="absolute right-0 top-0 w-full lg:w-3/4 h-full hidden lg:block rounded-l-[200px] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover opacity-80" alt="Office Background" />
+          <div className="absolute inset-0 bg-brand-primary/20 mix-blend-multiply"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col lg:flex-row py-12 lg:py-24">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="bg-brand-primary text-white p-12 lg:p-20 lg:rounded-r-[100px] rounded-[3rem] w-full lg:max-w-2xl shadow-2xl lg:-ml-12 border-l-8 border-brand-accent relative"
           >
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-accent/10 text-brand-accent text-sm font-bold mb-8 uppercase tracking-widest border border-brand-accent/20">
-              Next-Gen Infrastructure
-            </span>
-            <h1 className="text-6xl md:text-8xl font-display font-medium tracking-tight mb-8 max-w-4xl mx-auto leading-[0.9]">
-              Precision Cloud <br /> <span className="text-brand-accent">Engineering.</span>
+            <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight mb-6 leading-tight text-white">
+              <span className="text-brand-accent">StratByte</span> Solutions
             </h1>
-            <p className="text-lg md:text-xl text-black/50 mb-12 max-w-2xl mx-auto leading-relaxed">
-              We provide flexible, scalable solutions that adapt to client needs with comprehensive reporting, visualizations, and insights.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <button className="w-full sm:w-auto bg-black text-white px-8 py-4 rounded-full text-sm font-bold hover:bg-black/80 transition-all shadow-xl shadow-black/10 flex items-center justify-center">
-                Get Started <ArrowRight size={18} className="ml-2" />
-              </button>
-              <button className="w-full sm:w-auto bg-white border border-black/10 px-8 py-4 rounded-full text-sm font-bold hover:bg-black/5 transition-all flex items-center justify-center">
-                Explore Solutions
+            <div className="border-l-4 border-brand-accent pl-6 mb-12">
+              <p className="text-xl md:text-2xl font-bold italic leading-relaxed text-white">
+                Trust,<br />
+                Collaboration,<br />
+                Accountability,<br />
+                Client Success
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <button className="bg-brand-accent text-white px-8 py-4 rounded-full text-base font-bold hover:bg-brand-accent/90 transition-all shadow-xl shadow-brand-accent/30 flex items-center justify-center">
+                Get Started <ArrowRight size={20} className="ml-2" />
               </button>
             </div>
           </motion.div>
-
-          {/* Abstract Visual Elements */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-full h-full opacity-30">
-            <div className="absolute top-0 right-1/4 w-64 h-64 bg-brand-accent/20 blur-[120px] rounded-full" />
-            <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-brand-accent/10 blur-[150px] rounded-full" />
-          </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="bg-black text-white py-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Stats Section with Brand Color */}
+      <section className="bg-brand-primary text-white py-20 overflow-hidden relative">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { label: 'Uptime', value: '99.99%', icon: <Server size={20} /> },
@@ -71,23 +73,17 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section id="why-choose-us" className="py-24 lg:py-40 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-16">
+      <section id="why-choose-us" className="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-16 items-center">
           <div className="lg:col-span-4">
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">
-              Why <span className="text-brand-accent">Choose Us?</span>
+            <span className="text-brand-primary font-bold text-xl uppercase tracking-widest block mb-2">Why</span>
+            <h2 className="text-4xl md:text-5xl font-display font-black text-brand-accent uppercase mb-8 leading-tight">
+              Choose Us?
             </h2>
-            <p className="text-black/50 mb-10 leading-relaxed">
-              We provide tools and expertise to make your cloud journey smooth and fully optimized.
+            <div className="w-16 h-1 bg-brand-accent mb-8" />
+            <p className="text-gray-600 mb-10 leading-relaxed text-lg">
+              We provide tools and expertise to make your cloud journey smooth and fully optimized. Predictable pricing with the best support suitable for growing businesses.
             </p>
-            <div className="space-y-4">
-              {['24/7 Support', 'Sustainable Growth', 'Seamless Collaboration'].map((item) => (
-                <div key={item} className="flex items-center space-x-3 text-sm font-medium">
-                  <div className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
           </div>
           <div className="lg:col-span-8 grid sm:grid-cols-2 gap-6">
             {REASONS_TO_CHOOSE.map((reason, index) => {
@@ -101,11 +97,11 @@ export default function Home() {
                   transition={{ delay: index * 0.1 }}
                   className="glass-card p-8 group hover:border-brand-accent transition-colors"
                 >
-                  <div className="w-12 h-12 bg-black text-white rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-accent transition-colors">
-                    <IconComponent size={24} />
+                  <div className="w-16 h-16 bg-brand-accent rounded-full text-white flex items-center justify-center mb-6 ring-8 ring-brand-accent/10 group-hover:scale-110 transition-transform">
+                    <IconComponent size={28} />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{reason.title}</h3>
-                  <p className="text-black/60 text-sm leading-relaxed">
+                  <h3 className="text-lg font-bold mb-3 text-brand-accent uppercase">{reason.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     {reason.description}
                   </p>
                 </motion.div>
@@ -132,17 +128,23 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left relative z-10 border-t border-white/10 pt-16">
             <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-colors">
-              <MapPin className="mb-4 text-brand-accent" size={24} />
+              <div className="w-12 h-12 bg-brand-primary rounded-full text-white flex items-center justify-center mb-4 shadow-lg shrink-0">
+                 <MapPin size={24} />
+              </div>
               <h4 className="font-bold mb-2 text-white">Visit Us</h4>
               <p className="text-sm text-white/70 leading-relaxed">Cooperative House Plot 692<br />Cha Cha Cha Road<br />Lusaka, Zambia</p>
             </div>
             <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-colors">
-              <Phone className="mb-4 text-brand-accent" size={24} />
+              <div className="w-12 h-12 bg-brand-primary rounded-full text-white flex items-center justify-center mb-4 shadow-lg shrink-0">
+                 <Phone size={24} />
+              </div>
               <h4 className="font-bold mb-2 text-white">Call Us</h4>
-              <p className="text-sm text-white/70 leading-relaxed"><br />+260 97 3602780<br /><span className="opacity-0">.</span></p>
+              <p className="text-sm text-white/70 leading-relaxed"><br />+260 768 407 072<br /><span className="opacity-0">.</span></p>
             </div>
             <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-colors">
-              <Mail className="mb-4 text-brand-accent" size={24} />
+              <div className="w-12 h-12 bg-brand-primary rounded-full text-white flex items-center justify-center mb-4 shadow-lg shrink-0">
+                 <Mail size={24} />
+              </div>
               <h4 className="font-bold mb-2 text-white">Email Us</h4>
               <p className="text-sm text-white/70 leading-relaxed"><br /><a href="mailto:info@stratbyte.cloud" className="hover:text-white transition-colors">info@stratbyte.cloud</a><br /><span className="opacity-0">.</span></p>
             </div>

@@ -11,7 +11,6 @@ export function Navbar() {
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
     { name: 'About', path: '/about' },
-    { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -20,10 +19,20 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="p-1.5 bg-brand-accent rounded-lg text-white transform transition-transform group-hover:rotate-12">
-              <Cloud size={24} />
+            <div className="relative flex items-center justify-center w-10 h-10 mr-2">
+              <svg viewBox="0 0 100 100" className="w-full h-full fill-brand-primary">
+                 <circle cx="50" cy="50" r="16" className="fill-brand-accent" />
+                 <circle cx="20" cy="30" r="10" />
+                 <circle cx="80" cy="30" r="10" />
+                 <circle cx="28" cy="75" r="10" />
+                 <circle cx="72" cy="75" r="10" />
+                 <circle cx="12" cy="55" r="7" className="fill-brand-accent" />
+                 <circle cx="88" cy="55" r="7" className="fill-brand-accent" />
+                 <circle cx="50" cy="20" r="8" className="fill-brand-primary" />
+                 <circle cx="50" cy="82" r="8" className="fill-brand-accent" />
+              </svg>
             </div>
-            <span className="font-display font-bold text-xl tracking-tighter">STRATBYTE</span>
+            <span className="font-display font-extrabold text-2xl tracking-[0.1em] text-black">STRATBYTE</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -39,7 +48,7 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <button className="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-black/80 transition-all active:scale-95">
+            <button className="bg-brand-primary text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-brand-primary/90 transition-all active:scale-95 shadow-lg shadow-brand-primary/20">
               Get Started
             </button>
           </div>
@@ -74,7 +83,7 @@ export function Navbar() {
             </Link>
           ))}
           <div className="pt-4 px-3">
-             <button className="w-full bg-black text-white px-5 py-3 rounded-xl text-sm font-medium">
+             <button className="w-full bg-brand-primary text-white px-5 py-3 rounded-xl text-sm font-bold hover:bg-brand-primary/90">
               Get Started
             </button>
           </div>

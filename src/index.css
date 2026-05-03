@@ -1,51 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space+Grotesk", "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Outfit", sans-serif;
   
-  --color-brand-primary: #0A0A0A;
-  --color-brand-accent: #3B82F6; /* Vibrant blue */
+  --color-brand-primary: #34267A; /* Deep Purple from profile */
+  --color-brand-accent: #DC0073; /* Magenta from profile */
   --color-brand-accent-foreground: #FFFFFF;
 }
 
 @layer base {
   body {
-    @apply bg-white text-brand-primary font-sans antialiased;
+    @apply bg-white text-gray-800 font-sans antialiased;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-medium tracking-tight;
+    @apply font-display font-bold tracking-tight text-brand-primary;
   }
 }
 
 .technical-grid {
   background-image: 
-    linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(52, 38, 122, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(52, 38, 122, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 .glass-card {
-  @apply bg-white/80 backdrop-blur-md border border-black/5 rounded-2xl;
+  @apply bg-white border border-brand-primary/10 rounded-[2rem] shadow-sm hover:shadow-xl hover:border-brand-accent/30 transition-all duration-300;
 }
 
 /* Markdown Styling */
 .markdown-body {
-  @apply text-black/80 leading-relaxed;
+  @apply text-gray-800 leading-relaxed;
 }
 
-.markdown-body h1 { @apply text-4xl font-bold mt-12 mb-6; }
-.markdown-body h2 { @apply text-2xl font-bold mt-10 mb-4; }
-.markdown-body h3 { @apply text-xl font-bold mt-8 mb-3; }
+.markdown-body h1 { @apply text-4xl font-bold mt-12 mb-6 text-brand-primary; }
+.markdown-body h2 { @apply text-2xl font-bold mt-10 mb-4 text-brand-primary; }
+.markdown-body h3 { @apply text-xl font-bold mt-8 mb-3 text-brand-primary; }
 .markdown-body p { @apply my-4; }
 .markdown-body ul { @apply list-disc list-inside my-6 space-y-2; }
 .markdown-body ol { @apply list-decimal list-inside my-6 space-y-2; }
 .markdown-body li { @apply pl-2; }
-.markdown-body strong { @apply font-bold text-black; }
+.markdown-body strong { @apply font-bold text-brand-primary; }
 .markdown-body a { @apply text-brand-accent underline underline-offset-4 font-medium; }
-.markdown-body blockquote { @apply border-l-4 border-brand-accent/30 pl-6 italic my-8 text-black/60; }
+.markdown-body blockquote { @apply border-l-4 border-brand-accent pl-6 italic my-8 text-gray-600; }
 
 

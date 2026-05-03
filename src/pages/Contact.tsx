@@ -37,7 +37,7 @@ export default function Contact() {
 
   return (
     <div className="pt-32 pb-40 min-h-screen flex flex-col justify-center">
-      <section className="bg-brand-accent text-white rounded-[2rem] mx-4 overflow-hidden relative py-20 lg:py-32">
+      <section className="bg-brand-accent text-white rounded-r-[4rem] rounded-l-none md:rounded-l-[8rem] ml-0 md:ml-12 overflow-hidden relative py-20 lg:py-32 shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             
@@ -47,48 +47,50 @@ export default function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-5xl md:text-7xl font-display font-bold leading-[0.9] mb-8 tracking-tight">
-                Let's <span className="italic opacity-80">modernize</span> <br /> your stack
+              <h1 className="text-5xl md:text-7xl font-display font-medium leading-[0.9] mb-4 tracking-tight italic">
+                Thank You!
               </h1>
-              <p className="text-xl text-white/80 mb-12 leading-relaxed max-w-lg">
-                Join the elite teams building the future on StratByte's managed infrastructure. Get in touch with our experts today.
-              </p>
+              
+              <div className="w-full h-48 md:h-64 rounded-[4rem] overflow-hidden my-12 relative shadow-2xl border-4 border-white/20 hidden sm:block">
+                 <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover" alt="Office Workers" />
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-display font-bold leading-[0.9] mb-8 tracking-tight">
+                Our Contact:
+              </h2>
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4 bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-colors">
-                  <div className="p-3 bg-brand-accent border border-white/20 rounded-xl text-white shrink-0">
-                    <MapPin size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold mb-1">Visit Us</h4>
-                    <p className="text-sm text-white/70 leading-relaxed">
-                      Cooperative House Plot 692<br />
-                      Cha Cha Cha Road<br />
-                      Lusaka, Zambia
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4 bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-colors">
-                  <div className="p-3 bg-brand-accent border border-white/20 rounded-xl text-white shrink-0">
+                  <div className="p-3 bg-brand-primary rounded-full text-white shrink-0 shadow-lg">
                     <Phone size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold mb-1">Call Us</h4>
-                    <p className="text-sm text-white/70 leading-relaxed">
-                      +260 97 3602780
+                    <p className="text-lg font-bold leading-relaxed text-white pt-2">
+                       +260 768 407 072
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4 bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-colors">
-                  <div className="p-3 bg-brand-accent border border-white/20 rounded-xl text-white shrink-0">
+                <div className="flex items-start space-x-4">
+                  <div className="p-3 bg-brand-primary rounded-full text-white shrink-0 shadow-lg">
                     <Mail size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold mb-1">Email Us</h4>
-                    <p className="text-sm text-white/70 leading-relaxed">
-                      <a href="mailto:info@stratbyte.cloud" className="hover:text-white transition-colors">info@stratbyte.cloud</a>
+                    <p className="text-lg font-bold leading-relaxed text-white pt-2">
+                      <a href="mailto:info@stratbyte.cloud" className="hover:text-white/80 transition-colors">info@stratbyte.cloud</a>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="p-3 bg-brand-primary rounded-full text-white shrink-0 shadow-lg">
+                    <MapPin size={24} />
+                  </div>
+                  <div>
+                    <p className="text-lg font-medium text-white/90 leading-relaxed pt-2">
+                      Plot 217 Minyanya Close,<br />
+                      Longridge Chilanga,<br />
+                      Lusaka, Zambia
                     </p>
                   </div>
                 </div>
