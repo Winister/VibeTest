@@ -1,8 +1,12 @@
 import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, Send, CheckCircle2, AlertCircle } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Contact() {
+  useEffect(() => {
+    document.title = "Contact Us | StratByte Solutions";
+  }, []);
+
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

@@ -1,7 +1,12 @@
 import { motion } from 'motion/react';
 import { ShieldCheck, Target, Lightbulb } from 'lucide-react';
+import { useEffect } from 'react';
 
 export default function About() {
+  useEffect(() => {
+    document.title = "About Us | StratByte Solutions";
+  }, []);
+
   return (
     <div className="pt-32 pb-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -3,8 +3,13 @@ import { ArrowRight, ChevronRight, Server, Globe, Cpu, MapPin, Phone, Mail } fro
 import { REASONS_TO_CHOOSE } from '../constants';
 import * as Icons from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "Home | StratByte Solutions";
+  }, []);
+
   return (
     <div className="pt-16">
       {/* Hero Section - Matching Cover Page aesthetic */}

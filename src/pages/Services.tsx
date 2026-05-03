@@ -1,8 +1,13 @@
 import { motion } from 'motion/react';
 import { SERVICES, PRODUCTS } from '../constants';
 import * as Icons from 'lucide-react';
+import { useEffect } from 'react';
 
 export default function Services() {
+  useEffect(() => {
+    document.title = "Products & Solutions | StratByte Solutions";
+  }, []);
+
   return (
     <div className="pt-32 pb-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
