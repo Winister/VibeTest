@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { SERVICES, PRODUCTS } from '../constants';
 import * as Icons from 'lucide-react';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Services() {
   useEffect(() => {
@@ -37,19 +38,20 @@ export default function Services() {
             {SERVICES.map((service, index) => {
               const IconComponent = (Icons as any)[service.icon || 'Cloud'] || Icons.Cloud;
               return (
-                <motion.div
-                  key={service.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="glass-card flex items-center p-6 hover:border-brand-accent transition-colors bg-white/80 backdrop-blur-md"
-                >
-                  <div className="w-12 h-12 bg-white ring-4 ring-[#4A72F6]/20 text-[#4A72F6] rounded-xl flex items-center justify-center mr-4 shrink-0 shadow-sm border border-[#4A72F6]/10">
-                    <IconComponent size={24} />
-                  </div>
-                  <h3 className="font-bold text-base text-brand-primary">{service.title}</h3>
-                </motion.div>
+                <Link key={service.id} to={`/solution/service/${service.id}`}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="glass-card flex items-center p-6 hover:border-brand-accent hover:scale-105 transition-all bg-white/80 backdrop-blur-md cursor-pointer block h-full"
+                  >
+                    <div className="w-12 h-12 bg-white ring-4 ring-[#4A72F6]/20 text-[#4A72F6] rounded-xl flex items-center justify-center mr-4 shrink-0 shadow-sm border border-[#4A72F6]/10">
+                      <IconComponent size={24} />
+                    </div>
+                    <h3 className="font-bold text-base text-brand-primary">{service.title}</h3>
+                  </motion.div>
+                </Link>
               );
             })}
           </div>
@@ -62,19 +64,20 @@ export default function Services() {
             {PRODUCTS.map((product, index) => {
               const IconComponent = (Icons as any)[product.icon || 'Box'] || Icons.Box;
               return (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="glass-card flex items-center p-6 hover:border-brand-primary transition-colors bg-white/80 backdrop-blur-md border-l-4 border-l-brand-primary"
-                >
-                  <div className="w-12 h-12 bg-brand-primary/10 text-brand-primary rounded-xl flex items-center justify-center mr-4 shrink-0">
-                    <IconComponent size={24} />
-                  </div>
-                  <h3 className="font-bold text-base leading-tight text-brand-primary">{product.title}</h3>
-                </motion.div>
+                <Link key={product.id} to={`/solution/product/${product.id}`}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="glass-card flex items-center p-6 hover:border-brand-primary hover:scale-105 transition-all bg-white/80 backdrop-blur-md border-l-4 border-l-brand-primary cursor-pointer block h-full"
+                  >
+                    <div className="w-12 h-12 bg-brand-primary/10 text-brand-primary rounded-xl flex items-center justify-center mr-4 shrink-0">
+                      <IconComponent size={24} />
+                    </div>
+                    <h3 className="font-bold text-base leading-tight text-brand-primary">{product.title}</h3>
+                  </motion.div>
+                </Link>
               );
             })}
           </div>

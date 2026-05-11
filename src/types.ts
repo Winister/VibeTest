@@ -2,6 +2,7 @@ export interface Service {
   id: string;
   title: string;
   description?: string;
+  longDescription?: string;
   icon?: string;
 }
 
@@ -15,5 +16,7 @@ export interface Reason {
 export interface Product {
   id: string;
   title: string;
+  description?: string;
+  longDescription?: string;
   icon?: string;
 }
