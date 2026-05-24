@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Cloud, Github, Twitter, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
+import { Github, Twitter, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
+import { Logo } from './Logo';
 
 export function Footer() {
   return (
@@ -11,37 +12,35 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="flex items-center space-x-2 mb-6">
-              <div className="relative flex items-center justify-center w-8 h-8 mr-1 bg-white rounded-full p-1.5 pt-2">
-                <svg viewBox="0 0 100 100" className="w-full h-full fill-brand-primary">
-                   <circle cx="50" cy="50" r="16" className="fill-brand-accent" />
-                   <circle cx="20" cy="30" r="10" />
-                   <circle cx="80" cy="30" r="10" />
-                   <circle cx="28" cy="75" r="10" />
-                   <circle cx="72" cy="75" r="10" />
-                   <circle cx="12" cy="55" r="7" className="fill-brand-accent" />
-                   <circle cx="88" cy="55" r="7" className="fill-brand-accent" />
-                   <circle cx="50" cy="20" r="8" className="fill-brand-primary" />
-                   <circle cx="50" cy="82" r="8" className="fill-brand-accent" />
-                </svg>
+            <Link to="/" className="inline-block mb-8">
+              <div className="bg-white p-3 rounded-2xl w-fit shadow-lg shadow-white/10 hover:shadow-xl hover:scale-105 transition-all">
+                <Logo className="scale-100" />
               </div>
-              <span className="font-display font-bold text-2xl tracking-[0.1em] text-white">STRATBYTE</span>
             </Link>
-            <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-8">
-              Empowering enterprises with cutting-edge cloud architectures and DevOps automation. Built for scale, designed for security.
+            <p className="text-white/45 text-sm leading-relaxed max-w-xs mb-8">
+              Empowering enterprises with cutting-edge, resilient cloud architectures and intelligent automation. Built for infinite scale, designed for absolute security.
             </p>
-            <div className="space-y-4 shadow-sm">
-              <div className="flex items-start space-x-3 text-white/60">
-                <MapPin size={18} className="shrink-0 mt-0.5 text-brand-accent" />
-                <span className="text-sm max-w-[200px]">Cooperative House Plot 692 Cha Cha Cha Road, Lusaka, Zambia</span>
+            <div className="space-y-4 bg-white/5 border border-white/10 rounded-2xl p-5 shadow-sm max-w-xs">
+              <div className="flex items-start space-x-3 text-white/70">
+                <MapPin size={18} className="shrink-0 mt-1 text-brand-accent" />
+                <span className="text-sm leading-relaxed font-medium">
+                  Plot 217 Minyanya Close,<br />
+                  Longridge Chilanga,<br />
+                  Lusaka, Zambia
+                </span>
               </div>
-              <div className="flex items-center space-x-3 text-white/60">
+              <div className="h-[1px] bg-white/10 w-full" />
+              <div className="flex items-center space-x-3 text-white/70">
                 <Phone size={18} className="shrink-0 text-brand-accent" />
-                <span className="text-sm">+260 97 3602780</span>
+                <a href="tel:+260973602780" className="text-sm font-bold hover:text-white transition-colors">
+                  +260 97 360 2780
+                </a>
               </div>
-              <div className="flex items-center space-x-3 text-white/60">
+              <div className="flex items-center space-x-3 text-white/70">
                 <Mail size={18} className="shrink-0 text-brand-accent" />
-                <span className="text-sm"><a href="mailto:info@stratbyte.cloud" className="hover:text-white transition-colors">info@stratbyte.cloud</a></span>
+                <a href="mailto:info@stratbyte.cloud" className="text-sm font-bold hover:text-white transition-colors">
+                  info@stratbyte.cloud
+                </a>
               </div>
             </div>
           </div>

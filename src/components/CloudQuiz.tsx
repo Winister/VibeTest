@@ -63,7 +63,7 @@ export default function CloudQuiz() {
       particleCount: 100,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#34267A', '#DC0073', '#ffffff']
+      colors: ['#0099B9', '#9955BB', '#ffffff']
     });
   };
 
@@ -110,11 +110,11 @@ export default function CloudQuiz() {
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               className="relative bg-white w-full max-w-lg rounded-[2rem] shadow-2xl overflow-hidden border border-brand-primary/10"
             >
-              <div className="bg-brand-primary p-6 text-white flex justify-between items-center relative overflow-hidden">
-                <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-xl" />
-                <h3 className="font-display font-bold text-xl relative z-10">Cloud Readiness Quiz</h3>
-                <button onClick={resetQuiz} className="text-white/70 hover:text-white relative z-10">
-                  <X size={24} />
+              <div className="bg-gray-50 p-6 text-gray-900 border-b border-gray-100 flex justify-between items-center relative overflow-hidden">
+                <div className="absolute -right-8 -top-8 w-32 h-32 bg-brand-primary/5 rounded-full blur-xl" />
+                <h3 className="font-display font-bold text-xl relative z-10 text-brand-primary">Cloud Readiness Quiz</h3>
+                <button onClick={resetQuiz} className="text-gray-400 hover:text-gray-900 transition-colors relative z-10 bg-white shadow-sm p-1.5 rounded-full">
+                  <X size={20} />
                 </button>
               </div>
 

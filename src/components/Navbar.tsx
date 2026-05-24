@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Cloud, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { Logo } from './Logo';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -17,22 +18,9 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-black/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="relative flex items-center justify-center w-10 h-10 mr-2">
-              <svg viewBox="0 0 100 100" className="w-full h-full fill-brand-primary">
-                 <circle cx="50" cy="50" r="16" className="fill-brand-accent" />
-                 <circle cx="20" cy="30" r="10" />
-                 <circle cx="80" cy="30" r="10" />
-                 <circle cx="28" cy="75" r="10" />
-                 <circle cx="72" cy="75" r="10" />
-                 <circle cx="12" cy="55" r="7" className="fill-brand-accent" />
-                 <circle cx="88" cy="55" r="7" className="fill-brand-accent" />
-                 <circle cx="50" cy="20" r="8" className="fill-brand-primary" />
-                 <circle cx="50" cy="82" r="8" className="fill-brand-accent" />
-              </svg>
-            </div>
-            <span className="font-display font-extrabold text-2xl tracking-[0.1em] text-black">STRATBYTE</span>
+        <div className="flex justify-between items-center h-20">
+          <Link to="/" className="flex items-center group">
+            <Logo className="scale-90 origin-left transition-transform group-hover:scale-95" />
           </Link>
 
           {/* Desktop Nav */}

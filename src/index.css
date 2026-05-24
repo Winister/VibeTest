@@ -5,8 +5,8 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", sans-serif;
   
-  --color-brand-primary: #34267A; /* Deep Purple from profile */
-  --color-brand-accent: #DC0073; /* Magenta from profile */
+  --color-brand-primary: #0099B9; /* Teal from image */
+  --color-brand-accent: #9955BB; /* Purple from image */
   --color-brand-accent-foreground: #FFFFFF;
 }
 
@@ -29,6 +29,13 @@
 
 .glass-card {
   @apply bg-white border border-brand-primary/10 rounded-[2rem] shadow-sm hover:shadow-xl hover:border-brand-accent/30 transition-all duration-300;
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, var(--color-brand-primary), var(--color-brand-accent));
 }
 
 /* Markdown Styling */
