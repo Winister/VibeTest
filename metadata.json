@@ -1,6 +1,6 @@
 {
-  "name": "StratByte Cloud Solutions",
-  "description": "A modern, professional website for a cloud solutions provider featuring a dedicated blog and service showcases.",
+  "name": "StratByte Web & App Solutions",
+  "description": "Premium corporate website development, custom mobile databases, and specialized IT consultancy services in Zambia.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

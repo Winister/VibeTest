@@ -16,6 +16,7 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import CloudQuiz from './components/CloudQuiz';
 import CookieConsent from './components/CookieConsent';
+import PromoPopup from './components/PromoPopup';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -54,6 +55,7 @@ export default function App() {
         <Footer />
         <CloudQuiz />
         <CookieConsent />
+        <PromoPopup />
       </div>
     </Router>
   );

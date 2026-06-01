@@ -1,18 +1,76 @@
 import { Service, Reason, Product } from './types';
 
 export const SERVICES: Service[] = [
-  { id: 'app-development', title: 'App Development', icon: 'Smartphone', description: 'Custom mobile & web apps', longDescription: 'We build highly scalable, secure, and user-friendly mobile and web applications tailored to your exact business needs and customer expectations.' },
-  { id: 'blockchain', title: 'Blockchain', icon: 'Link', description: 'Blockchain integration & smart contracts', longDescription: 'Leverage the power of decentralized technologies and secure ledgers. Transform your business processes with custom smart contracts and DApps.' },
-  { id: 'cloud-vpn', title: 'Cloud VPN', icon: 'Shield', description: 'Secure remote networking', longDescription: 'Ensure secure and private connections between your remote workforce and private networks with our robust Cloud VPN solution.' },
-  { id: 'data-analytics', title: 'Data Analytics', icon: 'BarChart', description: 'Business intelligence & reporting', longDescription: 'Make data-driven decisions confidently. Let us handle your data processing, visualization, and actionable intelligence workflows.' },
-  { id: 'digital-marketing', title: 'Digital Marketing', icon: 'Megaphone', description: 'SEO & campaign management', longDescription: 'Elevate your online presence through data-backed marketing campaigns, search engine optimization, and robust social media strategies.' },
-  { id: 'e-commerce', title: 'E-commerce', icon: 'ShoppingCart', description: 'Online storefront creation', longDescription: 'A complete end-to-end e-commerce platform solution that maximizes your sales with integrated payments, analytics, and responsive design.' },
-  { id: 'it-consulting', title: 'IT Consulting', icon: 'Users', description: 'Professional system strategies', longDescription: 'Get expert advice to navigate complex IT landscapes. We align your technology investments with your immediate and long-term business goals.' },
-  { id: 'video-streaming', title: 'Video Streaming', icon: 'Video', description: 'Live & VOD services', longDescription: 'Deliver high-quality, buffer-free video content to your audience anywhere in the world using our optimized streaming infrastructure.' },
-  { id: 'virtual-machines', title: 'Virtual Machines', icon: 'Server', description: 'Scalable cloud compute', longDescription: 'Deploy scalable and secure virtual machines on demand. Tailor CPU, memory, and storage instantly to match your dynamic workloads.' },
-  { id: 'vps-hosting', title: 'VPS Hosting', icon: 'HardDrive', description: 'Private server environments', longDescription: 'Experience superior performance and control with Virtual Private Servers, boasting guaranteed resources and root access.' },
-  { id: 'web-development', title: 'Web Development', icon: 'Code', description: 'Modern frontend websites', longDescription: 'Engage your customers with lightning-fast, visually stunning, and highly responsive web platforms built on bleeding-edge technologies.' },
-  { id: 'website-hosting', title: 'Website Hosting', icon: 'Globe', description: 'Reliable shared hosting', longDescription: 'Hassle-free, highly available hosting for your websites with unmetered bandwidth, automated backups, and an easy-to-use control panel.' },
+  { 
+    id: 'web-development', 
+    title: 'Website Development', 
+    icon: 'Code', 
+    description: 'High-speed, modern websites & portals', 
+    longDescription: 'Our hallmark service. We design and develop state-of-the-art, lightning-fast corporate websites, portfolios, and web portals that convert visitors into active customers. Built with next-generation responsiveness and strict SEO excellence.' 
+  },
+  { 
+    id: 'app-development', 
+    title: 'App Development', 
+    icon: 'Smartphone', 
+    description: 'Bespoke mobile & hybrid applications', 
+    longDescription: 'We build enterprise-grade, highly scalable mobile and web applications tailored specifically for Android, iOS, and modern web environments. From payment integration to real-time sync systems, we program it with ultimate precision.' 
+  },
+  { 
+    id: 'it-consulting', 
+    title: 'IT Consultancy', 
+    icon: 'Users', 
+    description: 'Strategic systems & engineering guides', 
+    longDescription: 'Our certified consulting engineers help you navigate complex technical challenges, restructure outdated operating networks, architect private setups, and map corporate hardware investments with bulletproof efficiency.' 
+  },
+  { 
+    id: 'website-hosting', 
+    title: 'Website Hosting', 
+    icon: 'Globe', 
+    description: 'Ultra-fast SSD hosting from K50/mo', 
+    longDescription: 'Get reliable, fast, and secure local SSD website hosting. Includes automatic backup cycles, 99.9% target uptime, free staging setups, and real support from engineers right here in Lusaka.' 
+  },
+  { 
+    id: 'vps-hosting', 
+    title: 'VPS Hosting', 
+    icon: 'HardDrive', 
+    description: 'Private server environments', 
+    longDescription: 'Experience superior performance and control with Virtual Private Servers, boasting guaranteed resources, full root access, and robust containerization.' 
+  },
+  { 
+    id: 'cloud-vpn', 
+    title: 'Cloud VPN', 
+    icon: 'Shield', 
+    description: 'Secure corporate networking', 
+    longDescription: 'Ensure secure and private tunnels between your distributed workforce and private data blocks with our customized Cloud VPN infrastructure.' 
+  },
+  { 
+    id: 'data-analytics', 
+    title: 'Data Analytics', 
+    icon: 'BarChart', 
+    description: 'Business intelligence & reports', 
+    longDescription: 'Turn system logs and user data into actionable sales insights. We build real-time interactive business intelligence dashboards and metrics tracking portals.' 
+  },
+  { 
+    id: 'e-commerce', 
+    title: 'E-commerce Platforms', 
+    icon: 'ShoppingCart', 
+    description: 'Secure, high-converting digital storefronts', 
+    longDescription: 'A complete end-to-end e-commerce program that maximizes local sales with direct mobile money (MTN, Airtel, Zamtel) and credit card payment integration.' 
+  },
+  { 
+    id: 'digital-marketing', 
+    title: 'Digital Marketing', 
+    icon: 'Megaphone', 
+    description: 'Enterprise SEO & campaign management', 
+    longDescription: 'Elevate your search rankings and maximize customer conversion with highly targeted, data-backed optimization and search campaigns.' 
+  },
+  { 
+    id: 'virtual-machines', 
+    title: 'Virtual Machines', 
+    icon: 'Server', 
+    description: 'Elastic virtual cloud compute', 
+    longDescription: 'Provision flexible, robust virtual CPU and RAM clusters on demand to handle fluctuating workloads with automated load balancing.' 
+  }
 ];
 
 export const PRODUCTS: Product[] = [
@@ -31,27 +89,27 @@ export const PRODUCTS: Product[] = [
 
 export const REASONS_TO_CHOOSE: Reason[] = [
   {
-    id: 'support',
-    title: '24/7 DEDICATED SUPPORT',
-    description: 'Simple tools and predictable pricing with the best support suitable for growing businesses, our solutions and services are designed to serve the unique needs of businesses of different sizes.',
-    icon: 'Headset'
+    id: 'expert-engineering',
+    title: 'Elite Digital Craftsmanship',
+    description: 'We code from scratch, optimizing all assets for rapid download. Our responsive layouts are customized for complete lead conversion and pristine aesthetics.',
+    icon: 'Code'
   },
   {
     id: 'predictable-cost',
-    title: 'PREDICTABLE COST FOR SUSTAINABLE GROWTH',
-    description: 'Accurately anticipate and budget for your costs to avoid frequent or significant fluctuations. Predictable costs are essential for effective financial planning and budgeting.',
+    title: 'Transparent Local Pricing',
+    description: 'Get clear, detailed quotes with no hidden fees or surprising technical markups. Simple, predictable billing adapted for Zambia businesses.',
     icon: 'TrendingUp'
   },
   {
-    id: 'collaboration',
-    title: 'SEAMLESS COLLABORATION',
-    description: 'Our cloud based tools and applications facilitate for seamless collaboration across teams and locations, boosting overall productivity.',
+    id: 'strategic-partner',
+    title: 'Empathetic IT Consultancy',
+    description: 'We don\'t just deploy code—we analyze your exact business constraints, customer journey, and operations to align software with profits.',
     icon: 'Users'
   },
   {
-    id: 'innovation',
-    title: 'INNOVATION UNBOUND',
-    description: 'We recognize that one size does not fit all. That is why StratByte Cloud Solutions is modular in nature. Get only what you need and leave out what you don\'t.',
-    icon: 'Lightbulb'
+    id: 'always-on-support',
+    title: 'Committed Regional Desk',
+    description: 'When you need to update content, scale data storage, or modify layouts, our local Lusaka team is always ready and reachable.',
+    icon: 'Headset'
   }
 ];
