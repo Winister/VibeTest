@@ -1,89 +1,118 @@
 import { Link } from 'react-router-dom';
-import { Github, Twitter, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
+import { Github, Twitter, Linkedin, MapPin, Phone, Mail, ArrowUp } from 'lucide-react';
 import { Logo } from './Logo';
 
 export function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="bg-brand-primary text-white py-20 relative overflow-hidden">
-      {/* Geometric accent to mimic top right of page 2 */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent origin-bottom-left rotate-45 translate-x-32 -translate-y-32 z-0"></div>
-      <div className="absolute top-0 right-0 w-64 h-64 border-[32px] border-white/20 origin-bottom-left rotate-45 translate-x-[9rem] -translate-y-[10rem] z-0"></div>
+    <footer className="bg-[#090d16] text-[#94a3b8] pt-24 pb-12 relative overflow-hidden border-t border-slate-900">
+      {/* Dynamic ambient grid background */}
+      <div className="absolute inset-0 technical-grid opacity-[0.5] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-600/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="inline-block mb-8">
-              <div className="bg-white p-3 rounded-2xl w-fit shadow-lg shadow-white/10 hover:shadow-xl hover:scale-105 transition-all">
-                <Logo className="scale-100" />
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-slate-800/60">
+          
+          {/* Brand Col */}
+          <div className="md:col-span-5 text-left">
+            <Link to="/" onClick={scrollToTop} className="inline-block mb-6">
+              <Logo className="scale-100" />
             </Link>
-            <p className="text-white/45 text-sm leading-relaxed max-w-xs mb-8">
-              Empowering enterprises with cutting-edge, resilient cloud architectures and intelligent automation. Built for infinite scale, designed for absolute security.
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm mb-8">
+              Zambia's premier elite technology firm specializing in beautiful custom web development, complex mobile database architectures, and certified IT operations. Discarding templates to write performance-optimized code block-by-block.
             </p>
-            <div className="space-y-4 bg-white/5 border border-white/10 rounded-2xl p-5 shadow-sm max-w-xs">
-              <div className="flex items-start space-x-3 text-white/70">
-                <MapPin size={18} className="shrink-0 mt-1 text-brand-accent" />
-                <span className="text-sm leading-relaxed font-medium">
-                  Plot 217 Minyanya Close,<br />
-                  Longridge Chilanga,<br />
-                  Lusaka, Zambia
-                </span>
-              </div>
-              <div className="h-[1px] bg-white/10 w-full" />
-              <div className="flex items-center space-x-3 text-white/70">
-                <Phone size={18} className="shrink-0 text-brand-accent" />
-                <a href="tel:+260973602780" className="text-sm font-bold hover:text-white transition-colors">
-                  +260 97 360 2780
-                </a>
-              </div>
-              <div className="flex items-center space-x-3 text-white/70">
-                <Mail size={18} className="shrink-0 text-brand-accent" />
-                <a href="mailto:info@stratbyte.cloud" className="text-sm font-bold hover:text-white transition-colors">
-                  info@stratbyte.cloud
-                </a>
-              </div>
+            <div className="flex space-x-4">
+              <a href="#" className="p-2 border border-slate-800 rounded-lg hover:border-cyan-400 hover:text-white transition-all text-slate-400">
+                <Twitter size={16} />
+              </a>
+              <a href="#" className="p-2 border border-slate-800 rounded-lg hover:border-cyan-400 hover:text-white transition-all text-slate-400">
+                <Github size={16} />
+              </a>
+              <a href="#" className="p-2 border border-slate-800 rounded-lg hover:border-cyan-400 hover:text-white transition-all text-slate-400">
+                <Linkedin size={16} />
+              </a>
             </div>
           </div>
 
-          <div>
-            <h4 className="font-display font-bold text-sm uppercase tracking-widest text-white/40 mb-6">Solutions</h4>
-            <ul className="space-y-4">
-              <li><Link to="/services" className="text-sm text-white/70 hover:text-brand-accent transition-colors">Migration</Link></li>
-              <li><Link to="/services" className="text-sm text-white/70 hover:text-brand-accent transition-colors">Cloud Native</Link></li>
-              <li><Link to="/services" className="text-sm text-white/70 hover:text-brand-accent transition-colors">Serverless</Link></li>
-              <li><Link to="/services" className="text-sm text-white/70 hover:text-brand-accent transition-colors">DevOps</Link></li>
+          <div className="md:col-span-1" />
+
+          {/* Solutions Column */}
+          <div className="md:col-span-3 text-left">
+            <h4 className="font-mono font-bold text-[10px] uppercase tracking-widest text-white mb-6">Solutions Portal</h4>
+            <ul className="space-y-3.5 text-xs">
+              <li>
+                <Link to="/services" onClick={scrollToTop} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Custom Web Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" onClick={scrollToTop} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  IT Consultancy & Systems Admin
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" onClick={scrollToTop} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Vehicle Diagnostics & Fleet Tech
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" onClick={scrollToTop} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Digital Sourcing & Procurement
+                </Link>
+              </li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-display font-bold text-sm uppercase tracking-widest text-white/40 mb-6">Company</h4>
-            <ul className="space-y-4">
-              <li><Link to="/about" className="text-sm text-white/70 hover:text-brand-accent transition-colors">About Us</Link></li>
-              <li><Link to="/contact" className="text-sm text-white/70 hover:text-brand-accent transition-colors">Contact</Link></li>
+          {/* Company Column */}
+          <div className="md:col-span-3 text-left">
+            <h4 className="font-mono font-bold text-[10px] uppercase tracking-widest text-white mb-6">Company & Logs</h4>
+            <ul className="space-y-3.5 text-xs">
+              <li>
+                <Link to="/about" onClick={scrollToTop} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Our Corporate DNA
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" onClick={scrollToTop} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Connect With Support
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy" onClick={scrollToTop} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Privacy Protocols
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" onClick={scrollToTop} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-display font-bold text-sm uppercase tracking-widest text-white/40 mb-6">Legal</h4>
-            <ul className="space-y-4">
-              <li><Link to="/privacy" className="text-sm text-white/70 hover:text-brand-accent transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="text-sm text-white/70 hover:text-brand-accent transition-colors">Terms of Service</Link></li>
-            </ul>
-            <div className="flex space-x-4 mt-8">
-              <Twitter size={20} className="text-white/40 hover:text-white cursor-pointer transition-colors" />
-              <Github size={20} className="text-white/40 hover:text-white cursor-pointer transition-colors" />
-              <Linkedin size={20} className="text-white/40 hover:text-white cursor-pointer transition-colors" />
-            </div>
-          </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white/20 text-xs">
-            &copy; {new Date().getFullYear()} StratByte Cloud Solutions. All rights reserved.
-          </p>
-          <p className="text-white/20 text-xs mt-4 md:mt-0">
-            Precision in every byte.
-          </p>
+        {/* Bottom Bar */}
+        <div className="mt-12 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 text-center md:text-left mb-4 md:mb-0">
+            <p>&copy; {new Date().getFullYear()} Stratbyte Solutions. 100% Zambian Owned firm.</p>
+            <div className="hidden md:block w-1.5 h-1.5 bg-slate-850 rounded-full" />
+            <p className="flex items-center gap-1">
+              <MapPin size={10} className="text-cyan-400" />
+              <span>Chilanga, Lusaka, Zambia</span>
+            </p>
+          </div>
+          
+          <button 
+            onClick={scrollToTop}
+            className="flex items-center gap-1 px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg text-[10px] font-bold text-slate-300 uppercase hover:border-cyan-400 hover:text-white transition-all group"
+          >
+            <span>Back to top</span>
+            <ArrowUp size={12} className="group-hover:-translate-y-0.5 transition-transform" />
+          </button>
         </div>
       </div>
     </footer>
