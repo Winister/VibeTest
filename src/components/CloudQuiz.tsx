@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Target, X, ChevronRight, CheckCircle2, MessageSquare, Code, Smartphone, HelpCircle } from 'lucide-react';
+import { X, ChevronRight, CheckCircle2, HelpCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ const QUESTIONS = [
     options: [
       { id: 'a', text: 'Bring my business online and rank high on search engines', type: 'web-development' },
       { id: 'b', text: 'Engage customers on mobile or automate internal operations', type: 'app-development' },
-      { id: 'c', text: 'Solve severe IT headaches, secure connections & consult experts', type: 'it-consulting' }
+      { id: 'c', text: 'Solve IT headaches, secure connections & consult experts', type: 'it-consulting' }
     ]
   },
   {
@@ -63,7 +63,7 @@ export default function CloudQuiz() {
       particleCount: 100,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#0099B9', '#9955BB', '#ffffff']
+      colors: ['#2563eb', '#06b6d4', '#ffffff']
     });
   };
 
@@ -84,11 +84,11 @@ export default function CloudQuiz() {
       {/* Floating Action Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-40 bg-brand-primary text-white p-4.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all shadow-brand-primary/40 flex items-center justify-center ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+        className={`fixed bottom-6 right-6 z-40 bg-gradient-to-r from-blue-600 to-cyan-500 text-white p-4 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all shadow-blue-500/20 flex items-center justify-center group ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
         aria-label="Launch project planner quiz"
       >
-        <HelpCircle size={28} className="animate-pulse text-white" />
-        <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 font-bold text-xs uppercase tracking-wider pl-0 group-hover:pl-2">Planner</span>
+        <HelpCircle size={24} className="animate-pulse text-white" />
+        <span className="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-300 font-bold text-xs uppercase tracking-wider pl-0 group-hover:pl-2">Planner</span>
       </button>
 
       {/* Quiz Modal */}
@@ -100,44 +100,48 @@ export default function CloudQuiz() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={resetQuiz}
-              className="absolute inset-0 bg-gray-900/40 backdrop-blur-sm"
+              className="absolute inset-0 bg-slate-950/80 backdrop-blur-md"
             />
             
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative bg-white w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden border border-gray-150"
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              className="relative bg-slate-900 w-full max-w-md rounded-[2rem] shadow-2xl overflow-hidden border border-slate-800 text-slate-100 z-10"
             >
-              <div className="bg-gray-50 p-6 text-gray-900 border-b border-gray-100 flex justify-between items-center relative overflow-hidden">
-                <div className="absolute -right-8 -top-8 w-32 h-32 bg-brand-primary/5 rounded-full blur-xl" />
-                <h3 className="font-display font-black text-xl relative z-10 text-brand-primary uppercase tracking-tight">Project Planner Quiz</h3>
-                <button onClick={resetQuiz} className="text-gray-400 hover:text-gray-900 transition-colors relative z-10 bg-white shadow-sm p-1.5 rounded-full border border-gray-100">
-                  <X size={18} />
+              {/* Top Accent line */}
+              <div className="w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-500" />
+
+              <div className="bg-slate-900/60 p-6 border-b border-slate-800/80 flex justify-between items-center relative overflow-hidden text-left">
+                <div className="absolute -right-8 -top-8 w-32 h-32 bg-blue-500/5 rounded-full blur-xl pointer-events-none" />
+                <h3 className="font-display font-black text-lg relative z-10 text-white uppercase tracking-tight">Project Planner Quiz</h3>
+                <button onClick={resetQuiz} className="text-slate-400 hover:text-white transition-colors relative z-10 bg-slate-950/80 p-1.5 rounded-full border border-slate-800">
+                  <X size={16} />
                 </button>
               </div>
 
-              <div className="p-8">
+              <div className="p-6 sm:p-8 text-left">
                 {!showResult ? (
                   <motion.div
                     key={currentQuestion}
-                    initial={{ x: 20, opacity: 0 }}
+                    initial={{ x: 15, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: -20, opacity: 0 }}
+                    exit={{ x: -15, opacity: 0 }}
+                    transition={{ duration: 0.35 }}
                   >
-                    <div className="flex justify-between items-center mb-6 text-xs font-black text-brand-primary/60 uppercase tracking-widest">
+                    <div className="flex justify-between items-center mb-6 text-[10px] font-black text-cyan-400 uppercase tracking-widest font-mono">
                       <span>Step {currentQuestion + 1} of {QUESTIONS.length}</span>
                       <div className="flex space-x-1.5">
                         {QUESTIONS.map((_, idx) => (
                           <div 
                             key={idx} 
-                            className={`h-1.5 w-6 rounded-full transition-all duration-350 ${idx <= currentQuestion ? 'bg-brand-accent' : 'bg-gray-200'}`} 
+                            className={`h-1.5 w-6 rounded-full transition-all duration-300 ${idx <= currentQuestion ? 'bg-cyan-400' : 'bg-slate-800'}`} 
                           />
                         ))}
                       </div>
                     </div>
 
-                    <h4 className="text-xl md:text-2xl font-display font-black text-gray-905 mb-8 leading-tight">
+                    <h4 className="text-lg sm:text-xl font-display font-black text-white mb-6 leading-snug">
                       {QUESTIONS[currentQuestion].text}
                     </h4>
 
@@ -146,17 +150,17 @@ export default function CloudQuiz() {
                         <button
                           key={opt.id}
                           onClick={() => handleOptionSelect(opt.id, opt.type)}
-                          className={`w-full text-left p-4 rounded-2xl border-2 transition-all flex items-center justify-between ${
+                          className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between font-semibold ${
                             answers[currentQuestion] === opt.id 
-                              ? 'border-brand-accent bg-brand-accent/5' 
-                              : 'border-gray-100 hover:border-brand-primary/30 hover:bg-gray-50/50'
+                              ? 'border-cyan-500 bg-cyan-950/20 text-white' 
+                              : 'border-slate-800 hover:border-cyan-500/30 bg-slate-950/50 hover:bg-slate-950 text-slate-300 hover:text-white'
                           }`}
                         >
-                          <span className="font-bold text-xs text-gray-750 uppercase tracking-tight leading-snug">{opt.text}</span>
-                          <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ml-4 ${
-                            answers[currentQuestion] === opt.id ? 'border-brand-accent' : 'border-gray-300'
+                          <span className="text-xs uppercase tracking-tight leading-snug">{opt.text}</span>
+                          <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ml-4 ${
+                            answers[currentQuestion] === opt.id ? 'border-cyan-400' : 'border-slate-600'
                           }`}>
-                            {answers[currentQuestion] === opt.id && <div className="w-2.5 h-2.5 bg-brand-accent rounded-full" />}
+                            {answers[currentQuestion] === opt.id && <div className="w-2 h-2 bg-cyan-400 rounded-full" />}
                           </div>
                         </button>
                       ))}
@@ -164,23 +168,23 @@ export default function CloudQuiz() {
                   </motion.div>
                 ) : (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-6"
+                    className="text-center py-4"
                   >
-                    <div className="w-20 h-20 bg-emerald-50 text-emerald-555 rounded-full flex items-center justify-center mx-auto mb-6 border border-emerald-100 shadow-xs">
-                      <CheckCircle2 size={40} className="text-emerald-500" />
+                    <div className="w-16 h-16 bg-blue-500/10 text-cyan-400 rounded-full flex items-center justify-center mx-auto mb-5 border border-cyan-500/20">
+                      <CheckCircle2 size={32} />
                     </div>
-                    <h4 className="text-2xl md:text-3xl font-display font-black text-brand-primary mb-4 uppercase tracking-tight">Quiz Complete!</h4>
-                    <p className="text-gray-500 text-sm mb-8 leading-relaxed font-semibold max-w-sm mx-auto">
+                    <h4 className="text-xl sm:text-2xl font-display font-black text-white mb-3 uppercase tracking-tight">Quiz Complete!</h4>
+                    <p className="text-slate-400 text-xs mb-8 leading-relaxed font-semibold max-w-sm mx-auto">
                       Based on your responses, we highly recommend custom development of your system setup. Let's redirect you to explore this blueprint immediately.
                     </p>
                     
                     <button
                       onClick={navigateToRecommendation}
-                      className="w-full bg-brand-accent text-white py-4.5 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-brand-accent/90 transition-all shadow-md active:scale-95 flex items-center justify-center"
+                      className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest transition-all shadow-md active:scale-95 flex items-center justify-center"
                     >
-                      Explore Suggested Service <ChevronRight className="ml-1.5" size={14} />
+                      Explore Suggested Service <ChevronRight className="ml-1.5" size={12} />
                     </button>
                   </motion.div>
                 )}

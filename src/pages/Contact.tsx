@@ -115,7 +115,7 @@ export default function Contact() {
                 <div>
                   <h4 className="text-[9px] font-bold uppercase tracking-widest text-slate-450 mb-0.5 font-mono">Operation Desk</h4>
                   <p className="text-sm sm:text-base font-bold text-white">
-                    <a href="tel:+260973602780" className="hover:text-cyan-400 transition-colors">+260 97 360 2780</a>
+                    <a href="tel:+260956450838" className="hover:text-cyan-400 transition-colors">+260 95 645 0838</a>
                   </p>
                 </div>
               </div>
@@ -141,7 +141,7 @@ export default function Contact() {
                 <div>
                   <h4 className="text-[9px] font-bold uppercase tracking-widest text-slate-450 mb-0.5 font-mono">Headquarters Coordinates</h4>
                   <p className="text-xs font-semibold leading-relaxed text-slate-300">
-                    Plot 217 Minyanya Close, Longridge Chilanga, Lusaka, Zambia
+                    Cooperative House, Plot 692 Cha Cha Cha Road, Lusaka, Zambia
                   </p>
                 </div>
               </div>
@@ -284,7 +284,7 @@ export default function Contact() {
                         <AlertCircle size={18} className="shrink-0 text-rose-400 mt-0.5" />
                         <div>
                           <strong className="block mb-0.5 font-bold text-white">Transmission Failed</strong>
-                          <span>An error occurred. Please contact us via info@stratbyte.cloud or +260 97 360 2780 for immediate offline backup response.</span>
+                          <span>An error occurred. Please contact us via info@stratbyte.cloud or +260 95 645 0838 for immediate offline backup response.</span>
                         </div>
                       </motion.div>
                     )}

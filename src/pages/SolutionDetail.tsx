@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, CheckCircle2, Shield, Calendar, Award, Star, Settings, ChevronRight } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Shield, Calendar, Award, ChevronRight } from 'lucide-react';
 import * as Icons from 'lucide-react';
 import { SERVICES, PRODUCTS } from '../constants';
 
@@ -22,10 +22,10 @@ export default function SolutionDetail() {
 
   if (!item) {
     return (
-      <div className="pt-32 pb-40 text-center min-h-[60vh] flex flex-col items-center justify-center bg-white">
-        <h1 className="text-4xl font-bold mb-4">Solution Not Found</h1>
-        <button onClick={() => navigate('/services')} className="text-brand-accent hover:underline flex items-center">
-          <ArrowLeft className="mr-2" /> Back to Services
+      <div className="pt-32 pb-40 text-center min-h-[60vh] flex flex-col items-center justify-center bg-[#0b0f19] text-white">
+        <h1 className="text-4xl font-display font-black uppercase mb-4 text-white">Solution Not Found</h1>
+        <button onClick={() => navigate('/services')} className="text-cyan-400 hover:underline flex items-center justify-center font-bold">
+          <ArrowLeft className="mr-2" size={16} /> Back to Services
         </button>
       </div>
     );
@@ -34,19 +34,23 @@ export default function SolutionDetail() {
   const IconComponent = (Icons as any)[item.icon || (isService ? 'Cloud' : 'Box')] || Icons.Box;
 
   return (
-    <div className="pt-24 pb-44 min-h-screen bg-white relative overflow-hidden">
-      {/* Background Gradient Orbs */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-accent/5 rounded-full blur-[100px] pointer-events-none" />
+    <div className="pt-24 pb-44 min-h-screen bg-[#0b0f19] text-slate-100 relative overflow-hidden selection:bg-blue-600/30 selection:text-cyan-300">
+      
+      {/* Decorative fine-line technical top bar */}
+      <div className="w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-500" />
+
+      {/* Cyber ambient glow effects */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-12">
         
         {/* Sleek Breadcrumb/Back button with dynamic highlight */}
         <button 
           onClick={() => navigate('/services')}
-          className="group inline-flex items-center text-xs font-black tracking-widest uppercase text-gray-400 hover:text-brand-primary mb-10 transition-colors"
+          className="group inline-flex items-center text-xs font-black tracking-widest uppercase text-slate-400 hover:text-cyan-400 mb-10 transition-all text-left"
         >
-          <div className="p-2 bg-gray-50 group-hover:bg-brand-primary group-hover:text-white rounded-full border border-gray-100 transition-all mr-3 shrink-0">
+          <div className="p-2 bg-slate-900 group-hover:bg-cyan-500 group-hover:text-slate-950 rounded-full border border-slate-800 transition-all mr-3 shrink-0">
             <ArrowLeft size={14} />
           </div>
           <span>Back to All Solutions</span>
@@ -54,25 +58,25 @@ export default function SolutionDetail() {
 
         {/* Hero Card Container */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="bg-white rounded-[3rem] p-8 md:p-14 border border-gray-150 hover:border-gray-200 transition-all shadow-xl shadow-brand-primary/5 overflow-hidden relative"
+          className="bg-slate-900/60 rounded-[2.5rem] p-8 md:p-14 border border-slate-850 hover:border-slate-800 transition-all shadow-2xl relative overflow-hidden backdrop-blur-md"
         >
-          {/* Subtle design header bars */}
-          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-primary via-brand-accent to-blue-500" />
+          {/* Top border strip */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-500" />
           
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 relative z-10 pb-8 border-b border-gray-100">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 relative z-10 pb-8 border-b border-slate-800/80">
             <div className="flex flex-col sm:flex-row items-start sm:items-center">
-              <div className="w-16 h-16 bg-gray-50 border border-gray-100 text-brand-primary rounded-2xl flex items-center justify-center shrink-0 mr-6 mb-4 sm:mb-0 shadow-xs relative">
-                <IconComponent size={30} />
-                <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-brand-accent animate-ping" />
+              <div className="w-16 h-16 bg-slate-950 border border-slate-850 text-blue-400 rounded-2xl flex items-center justify-center shrink-0 mr-6 mb-4 sm:mb-0 shadow-lg relative">
+                <IconComponent size={28} />
+                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
               </div>
-              <div>
-                <span className="text-[10px] font-mono font-black text-brand-accent bg-brand-accent/5 border border-brand-accent/10 px-3 py-1 rounded-full uppercase tracking-wider block w-fit mb-2">
+              <div className="text-left">
+                <span className="text-[9px] font-mono font-bold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 rounded-full uppercase tracking-wider block w-fit mb-2">
                   {isService ? 'Professional Service' : 'Enterprise Product'}
                 </span>
-                <h1 className="text-3xl md:text-5xl font-display font-black text-gray-900 uppercase tracking-tight">
+                <h1 className="text-2xl sm:text-4xl font-display font-black text-white uppercase tracking-tight leading-none">
                   {item.title}
                 </h1>
               </div>
@@ -80,46 +84,46 @@ export default function SolutionDetail() {
           </div>
 
           {/* Solution Highlight Block */}
-          <div className="space-y-8 relative z-10">
+          <div className="space-y-8 relative z-10 text-left">
             
             {/* Description Text */}
-            <div className="bg-gray-50/70 border border-gray-100 p-6 md:p-8 rounded-3xl">
-              <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest mb-3">EXECUTIVE SUMMARY</h3>
-              <p className="text-lg md:text-xl font-medium leading-relaxed text-gray-800 italic">
+            <div className="bg-slate-950/40 border border-slate-850 p-6 md:p-8 rounded-2xl">
+              <h3 className="text-[10px] font-mono font-bold text-slate-450 uppercase tracking-widest mb-3">EXECUTIVE SUMMARY</h3>
+              <p className="text-base sm:text-lg font-medium leading-relaxed text-slate-200 italic">
                 "{item.description}"
               </p>
             </div>
 
             {/* Long details */}
-            <div>
-              <h3 className="text-xs font-black text-brand-primary uppercase tracking-widest mb-4">DETAILED CAPABILITIES</h3>
-              <p className="text-gray-600 leading-relaxed font-medium">
+            <div className="font-semibold text-xs leading-relaxed">
+              <h4 className="text-xs font-black text-cyan-400 uppercase tracking-widest mb-3 font-mono">SPECIFICATIONS & SCOPE</h4>
+              <p className="text-slate-300">
                 {item.longDescription}
               </p>
             </div>
 
             {/* Premium service parameters grid */}
-            <div className="grid sm:grid-cols-3 gap-4 pt-4">
-              <div className="bg-white border border-gray-150 p-5 rounded-2xl">
-                <Shield size={20} className="text-brand-primary mb-2" />
-                <h4 className="text-xs font-bold uppercase text-gray-400">Security Standard</h4>
-                <p className="text-sm font-black text-gray-800 mt-1">ISO 27001 Compliant</p>
+            <div className="grid sm:grid-cols-3 gap-4 pt-4 text-left">
+              <div className="bg-slate-950/40 border border-slate-850/60 p-5 rounded-xl">
+                <Shield size={18} className="text-blue-400 mb-2" />
+                <h4 className="text-[10px] font-mono font-bold uppercase text-slate-450">Security Standard</h4>
+                <p className="text-xs font-bold text-white mt-1 uppercase">ISO 27001 Compliant</p>
               </div>
-              <div className="bg-white border border-gray-150 p-5 rounded-2xl">
-                <Calendar size={20} className="text-brand-accent mb-2" />
-                <h4 className="text-xs font-bold uppercase text-gray-400">Deployment SLA</h4>
-                <p className="text-sm font-black text-gray-800 mt-1">Instant Execution</p>
+              <div className="bg-slate-950/40 border border-slate-850/60 p-5 rounded-xl">
+                <Calendar size={18} className="text-cyan-400 mb-2" />
+                <h4 className="text-[10px] font-mono font-bold uppercase text-slate-450">Deployment SLA</h4>
+                <p className="text-xs font-bold text-white mt-1 uppercase">Instant Execution</p>
               </div>
-              <div className="bg-white border border-gray-150 p-5 rounded-2xl">
-                <Award size={20} className="text-blue-600 mb-2" />
-                <h4 className="text-xs font-bold uppercase text-gray-400">SADC Support Desk</h4>
-                <p className="text-sm font-black text-gray-800 mt-1">24/7 Engineers</p>
+              <div className="bg-slate-950/40 border border-slate-850/60 p-5 rounded-xl">
+                <Award size={18} className="text-blue-400 mb-2" />
+                <h4 className="text-[10px] font-mono font-bold uppercase text-slate-450 font-mono">SADC Support Desk</h4>
+                <p className="text-xs font-bold text-white mt-1 uppercase font-semibold">24/7 Engineers</p>
               </div>
             </div>
 
             {/* Quality Standard items */}
-            <div className="pt-6 border-t border-gray-55">
-              <h3 className="text-xs font-black text-gray-450 uppercase tracking-widest mb-4">DELIVERY ASSURANCE</h3>
+            <div className="pt-6 border-t border-slate-800/80">
+              <h3 className="text-[10px] font-mono font-bold text-slate-450 uppercase tracking-widest mb-4">DELIVERY ASSURANCE</h3>
               
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
@@ -128,8 +132,8 @@ export default function SolutionDetail() {
                   'Bespoke Deployment Tailored to SADC compliance',
                   'Rigorous Performance Auditing & Visual Reports'
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center space-x-3 text-sm text-gray-600 font-bold">
-                    <CheckCircle2 className="text-emerald-500 shrink-0" size={18} />
+                  <div key={idx} className="flex items-center space-x-3 text-xs text-slate-300 font-semibold">
+                    <CheckCircle2 className="text-cyan-400 shrink-0" size={14} />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -137,26 +141,26 @@ export default function SolutionDetail() {
             </div>
 
             {/* Call to action panel */}
-            <div className="bg-gray-50 border border-gray-150 rounded-2xl p-8 mt-12 text-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-primary/10 rounded-full blur-2xl pointer-events-none" />
-              <p className="text-xs font-black text-brand-primary uppercase tracking-widest mb-2">Configure this solution</p>
-              <h3 className="text-2xl font-display font-black text-gray-900 uppercase tracking-tight mb-4">Ready to implement?</h3>
-              <p className="text-sm text-gray-500 mb-8 max-w-xl mx-auto leading-relaxed font-semibold">
+            <div className="bg-slate-950/40 border border-slate-850 rounded-2xl p-6 sm:p-8 mt-12 text-center relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
+              <p className="text-[10px] font-mono font-bold text-cyan-400 uppercase tracking-widest mb-2">Configure this solution</p>
+              <h3 className="text-xl font-display font-black text-white uppercase tracking-tight mb-4">Ready to implement?</h3>
+              <p className="text-xs text-slate-400 mb-8 max-w-xl mx-auto leading-relaxed font-semibold">
                 Connect with an enterprise engineer in Lusaka to review the operational specifications, estimated band capability, and service integration terms.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button 
                   onClick={() => navigate('/contact', { state: { customMessage: `Hi, I am interested in procuring your ${item.title} solution. Please send us more details.` } })}
-                  className="bg-brand-primary text-white text-xs font-black uppercase tracking-widest px-8 py-4.5 rounded-full hover:bg-brand-primary/95 hover:-translate-y-0.5 transition-all shadow-md w-full sm:w-auto flex items-center justify-center"
+                  className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded-xl hover:-translate-y-0.5 transition-all shadow-md w-full sm:w-auto flex items-center justify-center"
                 >
                   <span>Request Custom SLA</span>
-                  <ChevronRight size={14} className="ml-1" />
+                  <ChevronRight size={12} className="ml-1" />
                 </button>
                 <a 
-                  href="tel:+260973602780"
-                  className="bg-white text-gray-700 hover:text-brand-primary border border-gray-200 text-xs font-black uppercase tracking-widest px-8 py-4.5 rounded-full transition-all w-full sm:w-auto"
+                  href="tel:+260956450838"
+                  className="bg-slate-900 border border-slate-800 text-slate-100 hover:text-cyan-400 hover:border-cyan-400/30 text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded-xl transition-all w-full sm:w-auto"
                 >
-                  Call +260 97 360 2780
+                  Call +260 95 645 0838
                 </a>
               </div>
             </div>

@@ -412,7 +412,7 @@ export default function Home() {
                 <div>
                   <h4 className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Zambian Operations Direct</h4>
                   <p className="text-xs font-bold text-white">
-                    <a href="tel:+260973602780" className="hover:text-cyan-400 transition-colors">+260 97 360 2780</a>
+                    <a href="tel:+260956450838" className="hover:text-cyan-400 transition-colors">+260 95 645 0838</a>
                   </p>
                 </div>
               </div>
@@ -515,7 +515,7 @@ export default function Home() {
                   <div>
                     <h4 className="text-[10px] font-mono font-bold tracking-wider text-slate-400 uppercase mb-1">Corporate Headquarters</h4>
                     <p className="text-xs font-semibold leading-relaxed text-slate-200">
-                      Plot 217 Minyanya Close, Longridge Chilanga, Lusaka, Zambia
+                      Cooperative House, Plot 692 Cha Cha Cha Road, Lusaka, Zambia
                     </p>
                   </div>
                 </div>
@@ -528,7 +528,7 @@ export default function Home() {
                   <div>
                     <h4 className="text-[10px] font-mono font-bold tracking-wider text-slate-400 uppercase mb-1">Operation Support desk</h4>
                     <p className="text-sm font-bold text-white">
-                      <a href="tel:+260973602780" className="hover:text-cyan-400 transition-colors">+260 97 360 2780</a>
+                      <a href="tel:+260956450838" className="hover:text-cyan-400 transition-colors">+260 95 645 0838</a>
                     </p>
                   </div>
                 </div>
@@ -619,7 +619,7 @@ export default function Home() {
 
                   {formStatus === 'error' && (
                     <div className="p-4 bg-rose-500/10 border border-rose-500/30 rounded-xl text-rose-400 text-xs font-medium leading-relaxed">
-                      Ingress dispatch error. Please call +260 97 360 2780 or email info@stratbyte.cloud directly for an instant offline backup connection.
+                      Ingress dispatch error. Please call +260 95 645 0838 or email info@stratbyte.cloud directly for an instant offline backup connection.
                     </div>
                   )}
                 </form>
@@ -639,7 +639,7 @@ export default function Home() {
             Get instant architectural answers on your mobile device. Click the button below to connect with lead systems engineers directly on WhatsApp.
           </p>
           <a 
-            href="https://wa.me/260973602780"
+            href="https://wa.me/260956450838"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 rounded-full text-xs font-bold uppercase tracking-widest transition-all shadow-lg active:scale-95"

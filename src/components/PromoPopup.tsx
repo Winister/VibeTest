@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Sparkles, Flame, CheckCircle, ArrowRight, HelpCircle } from 'lucide-react';
+import { X, Sparkles, Flame, CheckCircle, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export default function PromoPopup() {
@@ -40,10 +40,10 @@ export default function PromoPopup() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 left-6 z-40 bg-gradient-to-r from-brand-accent to-brand-primary text-white text-xs font-black uppercase tracking-wider px-5 py-3 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center space-x-2 border border-white/20"
+          className="fixed bottom-6 left-6 z-40 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-black uppercase tracking-widest px-5 py-3 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center space-x-2 border border-white/20"
           id="promo-trigger"
         >
-          <Flame size={14} className="text-amber-300 animate-pulse" />
+          <Flame size={14} className="text-amber-400 animate-pulse" />
           <span>June K500 Promo</span>
         </button>
       )}
@@ -57,111 +57,111 @@ export default function PromoPopup() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={handleClose}
-              className="absolute inset-0 bg-gray-900/60 backdrop-blur-md"
+              className="absolute inset-0 bg-slate-950/80 backdrop-blur-md"
               id="promo-backdrop"
             />
 
-            {/* Main Modal Card */}
+            {/* Main Modal Card (Resized and customized into sleek dark space card) */}
             <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 30 }}
+              initial={{ scale: 0.95, opacity: 0, y: 15 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 30 }}
-              transition={{ type: "spring", damping: 25, stiffness: 180 }}
-              className="relative bg-white w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden border border-gray-150 relative z-10"
+              exit={{ scale: 0.95, opacity: 0, y: 15 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="relative bg-slate-900 w-full max-w-md rounded-[2rem] shadow-2xl overflow-hidden border border-slate-800 relative z-10 text-slate-100"
               id="promo-modal"
             >
               {/* Premium Top Design Accent */}
-              <div className="w-full h-2 bg-gradient-to-r from-brand-accent via-amber-400 to-brand-primary" />
+              <div className="w-full h-1.5 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-500" />
 
               {/* Close Button */}
               <button
                 onClick={handleClose}
-                className="absolute top-5 right-5 z-20 text-gray-400 hover:text-gray-900 bg-gray-50 hover:bg-gray-100 p-2 rounded-full border border-gray-100 transition-colors"
+                className="absolute top-5 right-5 z-20 text-slate-400 hover:text-white bg-slate-950/50 hover:bg-slate-950 p-2 rounded-full border border-slate-800 transition-colors"
                 aria-label="Close promo modal"
               >
-                <X size={18} />
+                <X size={16} />
               </button>
 
               {/* Content Body */}
-              <div className="p-8 md:p-10 text-center relative">
+              <div className="p-6 sm:p-8 text-center relative">
                 
                 {/* Background glows */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
                 
                 {/* Promo Header Badge */}
-                <div className="inline-flex items-center space-x-2 bg-amber-50 border border-amber-200 rounded-full px-4 py-1.5 mb-6">
-                  <Sparkles size={14} className="text-amber-500 animate-spin" />
-                  <span className="text-[10px] font-black text-amber-600 uppercase tracking-widest leading-none font-sans">Special June Promo Offer</span>
+                <div className="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/25 rounded-full px-3.5 py-1 mb-5">
+                  <Sparkles size={12} className="text-cyan-400 animate-spin" />
+                  <span className="text-[9px] font-black text-cyan-300 uppercase tracking-widest leading-none font-mono">Special June Promo Offer</span>
                 </div>
 
-                <h3 className="text-3xl md:text-4xl font-display font-black leading-tight text-gray-900 uppercase">
+                <h3 className="text-2xl sm:text-3xl font-display font-black leading-tight text-white uppercase tracking-tight">
                   Fully Responsive <br />
-                  Websites for <span className="text-gradient">K500 Only!</span>
+                  Websites for <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">K500 Only!</span>
                 </h3>
 
-                <p className="text-gray-500 text-sm mt-3 font-medium max-w-sm mx-auto font-sans">
-                  Launch your stunning corporate webpage, resume, or business portfolio this June with Zambia's elite development engineers.
+                <p className="text-slate-350 text-xs mt-3 font-medium max-w-xs mx-auto leading-relaxed">
+                  Launch your stunning corporate webpage, resume, or business portfolio this June with Zambia's elite development team.
                 </p>
 
                 {/* Promotional Terms Matrix */}
-                <div className="bg-gray-50/75 border border-gray-100 rounded-3xl p-6 my-8 text-left space-y-4 relative">
+                <div className="bg-slate-950/50 border border-slate-850 rounded-2xl p-5 my-6 text-left space-y-3.5 relative">
                   
                   {/* Huge Pricing Focal Point */}
-                  <div className="flex items-baseline justify-center border-b border-gray-150 pb-5 mb-4">
-                    <span className="text-sm font-black text-gray-400 uppercase tracking-wider mr-2 font-display">Investment:</span>
-                    <span className="text-5xl font-display font-black text-gray-900">K500</span>
-                    <span className="text-xs font-mono text-gray-400 font-bold ml-1">/ ONCE-OFF</span>
+                  <div className="flex items-baseline justify-center border-b border-slate-800/65 pb-4 mb-3">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mr-2 font-mono">Investment:</span>
+                    <span className="text-4xl font-display font-black text-white">K500</span>
+                    <span className="text-[10px] font-mono text-cyan-400 font-bold ml-1.5 uppercase">/ Once-off</span>
                   </div>
 
-                  <div className="space-y-3.5">
+                  <div className="space-y-2.5 text-[11px] font-semibold leading-relaxed">
                     <div className="flex items-start">
-                      <CheckCircle className="text-emerald-500 shrink-0 mt-0.5" size={16} />
-                      <p className="text-xs font-bold text-gray-700 ml-3 font-sans">
+                      <CheckCircle className="text-cyan-400 shrink-0 mt-0.5" size={14} />
+                      <p className="text-slate-200 ml-2.5">
                         Custom landing page fully optimized for mobile devices and tablets
                       </p>
                     </div>
                     
                     <div className="flex items-start">
-                      <CheckCircle className="text-emerald-500 shrink-0 mt-0.5" size={16} />
-                      <p className="text-xs font-bold text-gray-700 ml-3 font-sans font-bold">
+                      <CheckCircle className="text-cyan-400 shrink-0 mt-0.5" size={14} />
+                      <p className="text-slate-200 ml-2.5">
                         High Speed setup & pristine layout crafted under our brand standards
                       </p>
                     </div>
 
                     <div className="flex items-start">
-                      <CheckCircle className="text-amber-500 shrink-0 mt-0.5" size={16} />
-                      <p className="text-xs font-semibold text-gray-500 ml-3 font-sans">
-                        <strong className="text-gray-700">Domain Registration</strong>: Fee is not included (bring your own or register via our team)
+                      <CheckCircle className="text-slate-500 shrink-0 mt-0.5" size={14} />
+                      <p className="text-slate-400 ml-2.5">
+                        <strong className="text-slate-200 font-bold">Domain Name</strong>: Not included (bring your own or register with us)
                       </p>
                     </div>
 
                     <div className="flex items-start">
-                      <CheckCircle className="text-brand-primary shrink-0 mt-0.5" size={16} />
-                      <p className="text-xs font-semibold text-gray-505 ml-3 font-sans">
-                        <strong className="text-gray-700 font-bold">Reliable SSD Hosting</strong>: Starting at only <span className="text-brand-primary font-black">K50 per month!</span>
+                      <CheckCircle className="text-blue-400 shrink-0 mt-0.5" size={14} />
+                      <p className="text-slate-300 ml-2.5">
+                        <strong className="text-white">Reliable SSD Hosting</strong>: Starting from only <span className="text-cyan-300 font-bold">K50 per month!</span>
                       </p>
                     </div>
                   </div>
                 </div>
 
                 {/* Submitting buttons */}
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col gap-2.5">
                   <button
                     onClick={handleClaim}
-                    className="flex-1 bg-brand-primary hover:bg-brand-primary/95 text-white py-4 px-6 rounded-2xl text-xs font-black uppercase tracking-widest transition-all shadow-md hover:-translate-y-0.5 flex items-center justify-center gap-2 font-sans"
+                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white py-3 px-5 rounded-xl text-xs font-black uppercase tracking-widest transition-all shadow-md active:scale-98 flex items-center justify-center gap-2"
                   >
                     <span>Claim Promo Offer</span>
-                    <ArrowRight size={14} />
+                    <ArrowRight size={12} />
                   </button>
                   <button
                     onClick={handleClose}
-                    className="sm:w-32 bg-white border border-gray-200 text-gray-600 hover:text-gray-900 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all hover:bg-gray-50 font-sans"
+                    className="w-full bg-slate-950 hover:bg-slate-920 border border-slate-800 text-slate-400 hover:text-white py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all"
                   >
                     Maybe Later
                   </button>
                 </div>
 
-                <div className="mt-4 flex items-center justify-center space-x-1.5 text-[9px] font-mono text-gray-400 uppercase tracking-widest">
+                <div className="mt-4 flex items-center justify-center space-x-1.5 text-[8px] font-mono text-slate-550 uppercase tracking-widest">
                   <span>*Offer Valid June 1st - June 30th</span>
                 </div>
 

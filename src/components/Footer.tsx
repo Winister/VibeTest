@@ -100,9 +100,9 @@ export function Footer() {
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 text-center md:text-left mb-4 md:mb-0">
             <p>&copy; {new Date().getFullYear()} Stratbyte Solutions. 100% Zambian Owned firm.</p>
             <div className="hidden md:block w-1.5 h-1.5 bg-slate-850 rounded-full" />
-            <p className="flex items-center gap-1">
-              <MapPin size={10} className="text-cyan-400" />
-              <span>Chilanga, Lusaka, Zambia</span>
+            <p className="flex items-center gap-2">
+              <MapPin size={12} className="text-cyan-400 shrink-0" />
+              <span>Cooperative House, Plot 692 Cha Cha Cha Road, Lusaka, Zambia</span>
             </p>
           </div>
           
