@@ -3,7 +3,7 @@ import { SERVICES, PRODUCTS } from '../constants';
 import * as Icons from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ShieldCheck, Cpu, Database, Flame, FileText, ArrowRight, Server, Phone } from 'lucide-react';
+import { Search, ShieldCheck, Cpu, Database, Flame, FileText, ArrowRight, Server } from 'lucide-react';
 
 export default function Services() {
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function Services() {
   // Core three services
   const coreThree = SERVICES.filter(s => ['web-development', 'app-development', 'it-consulting'].includes(s.id));
   
-  // Secondary Cloud & hosting services (hosting/vps/vpn/analytics/eccomerce/etc)
+  // Secondary Cloud & hosting services
   const secondaryCloudServices = SERVICES.filter(s => !['web-development', 'app-development', 'it-consulting'].includes(s.id));
 
   // Procurement products split
@@ -28,85 +28,62 @@ export default function Services() {
   const matchesSearch = (text: string = '') => text.toLowerCase().includes(searchQuery.toLowerCase());
 
   return (
-    <div className="pt-24 pb-40 overflow-hidden bg-[#0b0f19] text-slate-150 min-h-screen relative selection:bg-blue-600/30 selection:text-cyan-300">
-      
-      {/* Top Gradient Bar */}
-      <div className="w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-500" />
-
-      {/* Decorative Orbs */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-12">
+    <div className="pt-24 pb-40 bg-zinc-50 text-zinc-900 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="max-w-3xl mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {/* Tagline Badge */}
-            <div className="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/25 rounded-full px-4.5 py-1.5 mb-6">
-              <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-              <span className="text-xs font-bold text-cyan-300 uppercase tracking-widest leading-none font-mono">Solutions Catalog</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-6xl font-display font-extrabold tracking-tight mb-6 uppercase text-white leading-[1.05]">
-              Elite Services <br />
-              <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">& Custom Products</span>
+            <h1 className="text-4xl sm:text-5xl font-medium tracking-tight mb-6 text-zinc-900">
+              Solutions Catalog
             </h1>
-
-            <div className="h-[2px] w-20 bg-cyan-400 mx-auto mb-6" />
-
-            <p className="text-sm sm:text-base text-slate-300 font-semibold leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg text-zinc-500 leading-relaxed">
               We design and deliver clean, hyper-responsive websites, hybrid mobile database platforms, and custom-tailored hosting blueprints mapped directly for Zambian enterprises.
             </p>
           </motion.div>
         </div>
 
         {/* Categories Tab & Search Filter Row */}
-        <div className="bg-slate-900/40 border border-slate-800/80 rounded-[2rem] p-4.5 mb-16 flex flex-col md:flex-row gap-4 items-center justify-between relative z-10 text-left backdrop-blur-md">
-          
-          {/* Categories Tabed Layout */}
-          <div className="flex flex-wrap gap-2 w-full md:w-auto">
+        <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between mb-16">
+          <div className="flex flex-wrap gap-2">
             {[
-              { id: 'all', label: 'All Offerings', count: SERVICES.length + PRODUCTS.length },
-              { id: 'core', label: 'Core Engineering (3)', count: coreThree.length },
-              { id: 'hosting', label: 'Managed Cloud & Hosting', count: secondaryCloudServices.length + cloudProducts.length },
-              { id: 'procurement', label: 'Enterprise Procurement', count: generalProcurementProducts.length }
+              { id: 'all', label: 'All Offerings' },
+              { id: 'core', label: 'Core Engineering' },
+              { id: 'hosting', label: 'Managed Cloud' },
+              { id: 'procurement', label: 'Procurement' }
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveCategory(tab.id as any)}
-                className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-tight uppercase transition-all flex items-center space-x-2 border ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   activeCategory === tab.id 
-                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white border-transparent shadow-md shadow-blue-500/10' 
-                    : 'bg-slate-950/60 text-slate-400 hover:text-white border-slate-800 hover:border-slate-700'
+                    ? 'bg-zinc-900 text-white' 
+                    : 'bg-white text-zinc-600 border border-zinc-200 hover:border-zinc-300 hover:text-zinc-900'
                 }`}
               >
-                <span>{tab.label}</span>
-                <span className={`text-[9px] px-1.5 py-0.5 rounded-full flex items-center justify-center font-bold font-mono ${activeCategory === tab.id ? 'bg-white/20 text-white' : 'bg-slate-900 text-slate-500'}`}>{tab.count}</span>
+                {tab.label}
               </button>
             ))}
           </div>
 
-          {/* Search Input */}
-          <div className="relative w-full md:max-w-xs shrink-0">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={15} />
+          <div className="relative w-full md:w-64">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" size={16} />
             <input
               type="text"
               placeholder="Search services..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full text-xs font-bold pl-11 pr-5 py-3.5 rounded-full border border-slate-800 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-500/25 outline-none transition-all bg-slate-950 text-white placeholder-slate-500"
+              className="w-full pl-10 pr-4 py-2 bg-white border border-zinc-200 rounded-lg text-sm text-zinc-900 focus:outline-none focus:border-zinc-400 focus:ring-1 focus:ring-zinc-400 transition-all"
             />
           </div>
         </div>
 
         {/* DISPLAY BLOCKS */}
-        <div className="space-y-24 text-left">
-          
+        <div className="space-y-24">
           <AnimatePresence mode="wait">
             
             {/* 1. CORE THREE SERVICES SECTION */}
@@ -118,54 +95,31 @@ export default function Services() {
                 transition={{ duration: 0.5 }}
                 key="core-block"
               >
-                <div className="flex items-center space-x-3 mb-10 border-b border-slate-800/80 pb-5">
-                  <div className="w-10 h-10 bg-blue-600/15 text-blue-400 border border-blue-500/20 rounded-xl flex items-center justify-center shrink-0">
-                    <Cpu size={20} />
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-900">
+                    <Cpu size={16} />
                   </div>
-                  <div>
-                    <h2 className="text-xl sm:text-2xl font-display font-black text-white uppercase tracking-tight">Core Engineering Offerings</h2>
-                    <p className="text-[10px] font-bold text-slate-405 uppercase tracking-wider font-mono">Our premium solutions engineered from scratch</p>
-                  </div>
+                  <h2 className="text-2xl font-medium tracking-tight text-zinc-900">Core Engineering Offerings</h2>
                 </div>
 
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {coreThree.filter(s => matchesSearch(s.title) || matchesSearch(s.description)).map((service, index) => {
                     const IconComponent = (Icons as any)[service.icon || 'Cloud'] || Icons.Cloud;
                     return (
                       <Link key={service.id} to={`/solution/service/${service.id}`}>
-                        <motion.div
-                          initial={{ opacity: 0, y: 15 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.05 }}
-                          className="glass-card p-8 transition-all hover:-translate-y-1 flex flex-col justify-between h-full group"
-                        >
-                          <div>
-                            <div className="flex items-center justify-between mb-6">
-                              <div className="w-12 h-12 bg-slate-950 text-blue-400 border border-slate-800 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-all group-hover:text-cyan-400">
-                                <IconComponent size={21} />
-                              </div>
-                              <span className="text-[9px] font-mono font-bold bg-blue-500/10 text-cyan-300 px-2.5 py-1 rounded-full border border-blue-500/15 flex items-center">
-                                <ShieldCheck size={10} className="mr-1" />
-                                <span>Core Elite Only</span>
-                              </span>
+                        <div className="h-full bg-white border border-zinc-200 p-8 rounded-2xl hover:border-zinc-300 transition-colors group flex flex-col">
+                          <div className="mb-6">
+                            <div className="w-10 h-10 bg-zinc-50 border border-zinc-100 rounded-lg flex items-center justify-center text-zinc-900 mb-4 group-hover:scale-105 transition-transform">
+                              <IconComponent size={20} />
                             </div>
-
-                            <h3 className="text-lg font-display font-black text-white uppercase tracking-tight mb-2 group-hover:text-cyan-400 transition-colors">
-                              {service.title}
-                            </h3>
-                            <p className="text-xs text-slate-400 leading-relaxed font-semibold">
-                              {service.description}
-                            </p>
+                            <h3 className="text-lg font-medium text-zinc-900 mb-2">{service.title}</h3>
+                            <p className="text-sm text-zinc-500 leading-relaxed">{service.description}</p>
                           </div>
-
-                          <div className="pt-6 border-t border-slate-800/40 mt-6 flex items-center justify-between">
-                            <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">Configure Spec Blueprint</span>
-                            <div className="text-cyan-400 p-1.5 rounded-full bg-cyan-500/10 group-hover:bg-cyan-400 group-hover:text-slate-950 transition-all">
-                              <Icons.ChevronRight size={13} />
-                            </div>
+                          <div className="mt-auto pt-6 border-t border-zinc-100 flex items-center justify-between text-sm text-zinc-500 group-hover:text-zinc-900 transition-colors">
+                            <span>Configure Blueprint</span>
+                            <ArrowRight size={16} />
                           </div>
-                        </motion.div>
+                        </div>
                       </Link>
                     );
                   })}
@@ -173,41 +127,38 @@ export default function Services() {
               </motion.div>
             )}
 
-            {/* 2. SPECIFIC SPECIAL JUNE PROMO EMBED AT INTERSECT */}
+            {/* 2. SPECIFIC SPECIAL PROMO */}
             {activeCategory === 'all' && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-[#0c162e] to-slate-900 border border-blue-500/20 p-8 rounded-[2.5rem] mt-12 flex flex-col sm:flex-row justify-between items-center gap-6 relative overflow-hidden"
+                className="bg-zinc-900 p-8 sm:p-12 rounded-3xl mt-12 text-white flex flex-col sm:flex-row gap-8 items-center justify-between"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl" />
-                <div className="flex items-start space-x-4 text-left">
-                  <div className="p-3.5 bg-blue-500/10 border border-blue-500/20 text-cyan-400 rounded-2xl flex items-center justify-center shrink-0">
-                    <Flame size={24} className="animate-pulse" />
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-800 rounded-full text-xs font-medium text-zinc-300 mb-4">
+                    <Flame size={14} />
+                    <span>Special Package Active</span>
                   </div>
-                  <div>
-                    <span className="text-[9px] font-mono font-bold uppercase tracking-wider bg-blue-950 text-cyan-400 border border-blue-900/35 px-2 py-0.5 rounded">Special Package Active</span>
-                    <h3 className="text-xl font-display font-black text-white uppercase mt-1">June Promo: Corporate Website for K500</h3>
-                    <p className="text-xs text-slate-400 font-semibold leading-relaxed max-w-xl">
-                      Get a gorgeous, fast corporate landing page written from scratch for your small business or resume. Direct SSD web hosting is available for as low as K50/month. Domain name and registration excluded.
-                    </p>
-                  </div>
+                  <h3 className="text-2xl font-medium tracking-tight mb-3">June Promo: Corporate Website for K500</h3>
+                  <p className="text-zinc-400 max-w-xl leading-relaxed">
+                    Get a fast corporate landing page written from scratch for your small business. Direct SSD web hosting is available for as low as K50/month. Domain excluded.
+                  </p>
                 </div>
                 
                 <a 
                   href={googleFormUrl} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold uppercase text-xs tracking-wider px-6 py-4.5 rounded-xl shadow-md text-nowrap flex items-center justify-center gap-2 shrink-0 w-full sm:w-auto"
+                  className="shrink-0 bg-white text-zinc-900 px-6 py-3 rounded-lg text-sm font-medium hover:bg-zinc-200 transition-colors inline-flex items-center gap-2"
                 >
-                  <FileText size={15} />
-                  <span>Submit June Promo Form</span>
+                  <FileText size={16} />
+                  <span>Submit Promo Form</span>
                 </a>
               </motion.div>
             )}
 
-            {/* 3. CLOUD SYSTEMS, HOSTING & SECONDARY INFRASTRUCTURE SECTION */}
+            {/* 3. CLOUD SYSTEMS & HOSTING */}
             {(activeCategory === 'all' || activeCategory === 'hosting') && (
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
@@ -215,73 +166,46 @@ export default function Services() {
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.5 }}
                 key="hosting-block"
-                className="pt-12"
+                className="pt-8"
               >
-                <div className="flex items-center space-x-3 mb-10 border-b border-slate-800/80 pb-5">
-                  <div className="w-10 h-10 bg-cyan-600/15 text-cyan-400 border border-cyan-500/20 rounded-xl flex items-center justify-center shrink-0">
-                    <Server size={20} />
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-900">
+                    <Server size={16} />
                   </div>
-                  <div>
-                    <h2 className="text-xl sm:text-2xl font-display font-black text-white uppercase tracking-tight">Managed Cloud, VPNS & SSD Hosting</h2>
-                    <p className="text-[10px] font-bold text-slate-450 uppercase tracking-wider font-mono">Elastic resources, private secure servers, from K50/mo</p>
-                  </div>
+                  <h2 className="text-2xl font-medium tracking-tight text-zinc-900">Managed Cloud & SSD Hosting</h2>
                 </div>
 
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {/* Secondary services */}
-                  {secondaryCloudServices.filter(s => matchesSearch(s.title) || matchesSearch(s.description)).map((service, index) => {
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                  {secondaryCloudServices.filter(s => matchesSearch(s.title) || matchesSearch(s.description)).map((service) => {
                     const IconComponent = (Icons as any)[service.icon || 'Server'] || Icons.Server;
                     return (
                       <Link key={service.id} to={`/solution/service/${service.id}`}>
-                        <motion.div
-                          className="glass-card p-6 flex flex-col justify-between h-full group"
-                        >
-                          <div>
-                            <div className="w-10 h-10 bg-slate-950 text-cyan-400 border border-slate-800 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-all">
-                              <IconComponent size={18} />
+                        <div className="h-full bg-white border border-zinc-200 p-6 rounded-2xl hover:border-zinc-300 transition-colors group flex flex-col">
+                          <div className="mb-4">
+                            <div className="w-10 h-10 bg-zinc-50 border border-zinc-100 rounded-lg flex items-center justify-center text-zinc-900 mb-4 group-hover:scale-105 transition-transform">
+                              <IconComponent size={20} />
                             </div>
-                            <h4 className="text-sm font-bold text-white uppercase tracking-tight mb-2 group-hover:text-cyan-400 transition-colors">
-                              {service.title}
-                            </h4>
-                            <p className="text-[11px] text-slate-400 font-semibold leading-relaxed">
-                              {service.description}
-                            </p>
+                            <h4 className="text-base font-medium text-zinc-900 mb-2">{service.title}</h4>
+                            <p className="text-sm text-zinc-500 leading-relaxed">{service.description}</p>
                           </div>
-                          
-                          <div className="pt-4 border-t border-slate-800/40 mt-4 flex items-center justify-between text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
-                            <span>View Cloud Info</span>
-                            <Icons.ChevronRight size={11} />
-                          </div>
-                        </motion.div>
+                        </div>
                       </Link>
                     );
                   })}
 
-                  {/* Cloud compute products */}
                   {cloudProducts.filter(p => matchesSearch(p.title) || matchesSearch(p.description)).map((product) => {
                     const IconComponent = (Icons as any)[product.icon || 'Database'] || Icons.Database;
                     return (
                       <Link key={product.id} to={`/solution/product/${product.id}`}>
-                        <motion.div
-                          className="glass-card p-6 flex flex-col justify-between h-full group"
-                        >
-                          <div>
-                            <div className="w-10 h-10 bg-slate-950 text-cyan-300 border border-slate-800 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-all">
-                              <IconComponent size={18} />
+                        <div className="h-full bg-white border border-zinc-200 p-6 rounded-2xl hover:border-zinc-300 transition-colors group flex flex-col">
+                          <div className="mb-4">
+                            <div className="w-10 h-10 bg-zinc-50 border border-zinc-100 rounded-lg flex items-center justify-center text-zinc-900 mb-4 group-hover:scale-105 transition-transform">
+                              <IconComponent size={20} />
                             </div>
-                            <h4 className="text-sm font-bold text-white uppercase tracking-tight mb-2 group-hover:text-cyan-400 transition-colors">
-                              {product.title}
-                            </h4>
-                            <p className="text-[11px] text-slate-400 font-semibold leading-relaxed">
-                              {product.description}
-                            </p>
+                            <h4 className="text-base font-medium text-zinc-900 mb-2">{product.title}</h4>
+                            <p className="text-sm text-zinc-500 leading-relaxed">{product.description}</p>
                           </div>
-                          
-                          <div className="pt-4 border-t border-slate-800/40 mt-4 flex items-center justify-between text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
-                            <span>SLA Specifications</span>
-                            <Icons.ChevronRight size={11} />
-                          </div>
-                        </motion.div>
+                        </div>
                       </Link>
                     );
                   })}
@@ -289,7 +213,7 @@ export default function Services() {
               </motion.div>
             )}
 
-            {/* 4. PROCUREMENT HARDWARE SUPPLIES */}
+            {/* 4. PROCUREMENT */}
             {(activeCategory === 'all' || activeCategory === 'procurement') && (
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
@@ -297,63 +221,44 @@ export default function Services() {
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.5 }}
                 key="procure-block"
-                className="pt-12"
+                className="pt-8"
               >
-                <div className="flex items-center space-x-3 mb-10 border-b border-slate-800/80 pb-5">
-                  <div className="w-10 h-10 bg-blue-600/15 text-blue-400 border border-blue-500/20 rounded-xl flex items-center justify-center shrink-0">
-                    <Database size={20} />
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-900">
+                    <Database size={16} />
                   </div>
-                  <div>
-                    <h2 className="text-xl sm:text-2xl font-display font-black text-white uppercase tracking-tight">Enterprise Supplies & Procurement</h2>
-                    <p className="text-[10px] font-bold text-slate-450 uppercase tracking-wider font-mono">HVAC systems, tools, studio, stationery</p>
-                  </div>
+                  <h2 className="text-2xl font-medium tracking-tight text-zinc-900">Enterprise Supplies</h2>
                 </div>
 
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 font-semibold">
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                   {generalProcurementProducts.filter(p => matchesSearch(p.title) || matchesSearch(p.description)).map((product) => {
                     const IconComponent = (Icons as any)[product.icon || 'Box'] || Icons.Box;
                     return (
                       <Link key={product.id} to={`/solution/product/${product.id}`}>
-                        <motion.div
-                          className="glass-card p-6 flex flex-col justify-between h-full group text-left"
-                        >
-                          <div>
-                            <div className="w-10 h-10 bg-slate-950 text-slate-350 border border-slate-800 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-all">
-                              <IconComponent size={18} />
+                        <div className="h-full bg-white border border-zinc-200 p-6 rounded-2xl hover:border-zinc-300 transition-colors group flex flex-col">
+                          <div className="mb-4">
+                            <div className="w-10 h-10 bg-zinc-50 border border-zinc-100 rounded-lg flex items-center justify-center text-zinc-900 mb-4 group-hover:scale-105 transition-transform">
+                              <IconComponent size={20} />
                             </div>
-                            <h4 className="text-sm font-bold text-white uppercase tracking-tight mb-2 group-hover:text-cyan-400 transition-colors">
-                              {product.title}
-                            </h4>
-                            <p className="text-[11px] text-slate-400 leading-relaxed font-semibold">
-                              {product.description}
-                            </p>
+                            <h4 className="text-base font-medium text-zinc-900 mb-2">{product.title}</h4>
+                            <p className="text-sm text-zinc-500 leading-relaxed">{product.description}</p>
                           </div>
-                          
-                          <div className="pt-4 border-t border-slate-800/40 mt-4 flex items-center justify-between text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
-                            <span>Sourcing Logistics</span>
-                            <Icons.ChevronRight size={11} />
-                          </div>
-                        </motion.div>
+                        </div>
                       </Link>
                     );
                   })}
                 </div>
               </motion.div>
             )}
-
           </AnimatePresence>
-
         </div>
 
-        {/* 5. INTEGRATED BRIEF FORM SECTION */}
-        <section className="mt-32 text-center bg-slate-900/40 border border-slate-800/80 p-8 lg:p-12 rounded-[2.5rem] relative overflow-hidden backdrop-blur-md">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl pointer-events-none" />
-
-          <div className="max-w-2xl mx-auto relative z-10">
-            <h3 className="text-xl sm:text-2xl font-display font-black text-white uppercase mb-4">Complete our Web Layout requirements form</h3>
-            <p className="text-xs sm:text-sm text-slate-400 font-semibold leading-relaxed mb-8">
-              We leverage an integrated, 2-minute web developer questionnaire to collect your requested visual structure, design inspirations, pages, and dynamic database integrations. This streamlines our engineering timeline.
+        {/* 5. BRIEF FORM SECTION */}
+        <section className="mt-24 p-8 sm:p-12 bg-white border border-zinc-200 rounded-3xl text-center">
+          <div className="max-w-2xl mx-auto">
+            <h3 className="text-2xl font-medium tracking-tight text-zinc-900 mb-4">Ready to start?</h3>
+            <p className="text-zinc-500 mb-8">
+              Complete our 2-minute web developer questionnaire to collect your requested visual structure, design inspirations, pages, and integrations.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -361,18 +266,17 @@ export default function Services() {
                 href={googleFormUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold uppercase text-xs tracking-widest px-8 py-4 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all active:scale-95 group"
+                className="w-full sm:w-auto bg-zinc-900 hover:bg-zinc-800 text-white font-medium text-sm px-8 py-3 rounded-xl transition-all flex items-center justify-center gap-2"
               >
                 <FileText size={16} />
-                <span>Open Google Planner Form</span>
-                <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-all" />
+                <span>Open Requirements Form</span>
               </a>
 
               <Link 
                 to="/contact" 
-                className="w-full sm:w-auto bg-slate-950 hover:bg-slate-900 text-slate-300 border border-slate-800 font-bold uppercase text-xs tracking-widest px-8 py-4 rounded-xl transition-all"
+                className="w-full sm:w-auto bg-zinc-50 hover:bg-zinc-100 text-zinc-900 border border-zinc-200 font-medium text-sm px-8 py-3 rounded-xl transition-all"
               >
-                Schedule Direct Consultation
+                Schedule Consultation
               </Link>
             </div>
           </div>

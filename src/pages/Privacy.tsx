@@ -1,63 +1,60 @@
-import { motion } from 'motion/react';
 import { useEffect } from 'react';
 
 export default function Privacy() {
   useEffect(() => {
-    document.title = "Privacy Policy | StratByte Solutions";
+    document.title = "Privacy Policy | Stratbyte";
   }, []);
 
   return (
-    <div className="pt-32 pb-40">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1 className="text-4xl md:text-6xl font-display font-bold mb-8 tracking-tight text-brand-primary">
-            Privacy <span className="text-brand-accent">Policy</span>
-          </h1>
-          <div className="w-24 h-1.5 bg-brand-accent mb-10" />
-          
-          <div className="prose prose-lg text-gray-700 max-w-none">
-            <p className="lead text-xl mb-8">
-              At StratByte Cloud Solutions, we are committed to protecting your privacy and ensuring the security of your personal information.
-            </p>
-            
-            <h2 className="text-2xl font-bold text-brand-primary mt-10 mb-4">1. Information We Collect</h2>
-            <p className="mb-6">
-              We may collect personal information such as your name, email address, phone number, and company details when you communicate with us, use our services, or visit our website.
-            </p>
+    <div className="pt-32 pb-40 min-h-screen bg-zinc-50 text-zinc-900 selection:bg-zinc-200">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="mb-12">
+          <h1 className="text-4xl font-medium tracking-tight mb-4 text-zinc-900">Privacy Policy</h1>
+          <p className="text-zinc-500 text-sm font-medium">Last Updated: June 2024</p>
+        </div>
 
-            <h2 className="text-2xl font-bold text-brand-primary mt-10 mb-4">2. How We Use Your Information</h2>
-            <p className="mb-6">
-              We use the collected information to:
+        <div className="space-y-8 text-zinc-700 leading-relaxed text-sm">
+          <section className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm">
+            <h2 className="text-xl font-medium tracking-tight mb-4 text-zinc-900">1. Information Collection</h2>
+            <p>
+              We collect information that you provide directly to us, including but not limited to your name, corporate email address, phone number, and project specifications when you request a consultation, fill out a form, or otherwise communicate with us.
             </p>
-            <ul className="list-disc pl-6 mb-6 space-y-2">
-              <li>Provide and improve our IT and cloud solutions.</li>
-              <li>Communicate with you regarding our services.</li>
-              <li>Respond to your inquiries and support requests.</li>
-              <li>Comply with legal obligations.</li>
+          </section>
+
+          <section className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm">
+            <h2 className="text-xl font-medium tracking-tight mb-4 text-zinc-900">2. Technical Analytics</h2>
+            <p className="mb-4">
+              When you access our secure web portal at stratbyte.cloud, our servers automatically record certain information infrastructure details such as:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-600">
+              <li>Your IP address and regional geodata.</li>
+              <li>Browser type, version, and operating system.</li>
+              <li>Pages viewed, access times, and routing histories.</li>
             </ul>
+          </section>
 
-            <h2 className="text-2xl font-bold text-brand-primary mt-10 mb-4">3. Data Security</h2>
-            <p className="mb-6">
-              We implement industry-standard security measures to protect your personal information from unauthorized access, disclosure, alteration, and destruction.
+          <section className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm">
+            <h2 className="text-xl font-medium tracking-tight mb-4 text-zinc-900">3. Data Security & Storage</h2>
+            <p>
+              We implement industry-standard encryption protocols and elite security architectures to protect your data. All database credentials and proprietary configurations are heavily guarded and never shared with third-party tracking algorithms. However, no electronic transmission over the internet or information storage technology can be guaranteed to be 100% secure.
             </p>
+          </section>
 
-            <h2 className="text-2xl font-bold text-brand-primary mt-10 mb-4">4. Sharing Your Information</h2>
-            <p className="mb-6">
-              We do not sell, trade, or rent your personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information with our business partners and trusted affiliates.
+          <section className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm">
+            <h2 className="text-xl font-medium tracking-tight mb-4 text-zinc-900">4. Third-Party Integrations</h2>
+            <p>
+              We may utilize third-party operational tools (such as Cloudflare, FormSubmit) for performance diagnostics and form transmissions. These tools operate under their own independent privacy agreements.
             </p>
+          </section>
 
-            <h2 className="text-2xl font-bold text-brand-primary mt-10 mb-4">5. Contact Us</h2>
-            <p className="mb-6">
-              If you have any questions about this Privacy Policy, please contact us at:
-              <br />
-              <a href="mailto:info@stratbyte.cloud" className="text-brand-accent hover:underline font-bold">info@stratbyte.cloud</a>
+          <section className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm">
+            <h2 className="text-xl font-medium tracking-tight mb-4 text-zinc-900">5. Contact Us</h2>
+            <p>
+              If you have any questions or require an audit of your data held on our systems, please contact the Data Protection team at: <strong>info@stratbyte.cloud</strong>
             </p>
-          </div>
-        </motion.div>
+          </section>
+        </div>
       </div>
     </div>
   );
